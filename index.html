@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fashion 911 - Designer Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Google Fonts for a modern look -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="container header-content">
+            <div class="logo">
+                <span class="logo-text">FASHION <span class="accent-green">911</span></span>
+            </div>
+                        <nav>
+                <ul>
+                    <li><a href="#" class="active">Home</a></li>
+                    <li><a href="#">Show</a></li>
+                    <li><a href="#">Gallery</a></li>
+                    <li><a href="#">Community</a></li>
+                </ul>
+            </nav>
+            <button id="theme-toggle" class="theme-toggle" aria-label="Toggle light/dark mode">
+                <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+                <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+            </button>
+
+        </div>
+    </header>
+
+    <main>
+        <section class="banner-section">
+            <div class="slider-container" id="main-slider">
+                <div class="slider-wrapper">
+                                        <!-- 슬라이드 1 -->
+                    <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1490481651871-ab68de25d43d?q=80&w=2000&auto=format&fit=crop')">
+                        <div class="slide-content">
+                            <h2 class="accent-green">URBAN CHIC</h2>
+                            <p>도시의 밤을 밝히는 강렬한 실루엣</p>
+                            <a href="#" class="btn-more">VIEW COLLECTION</a>
+                        </div>
+                    </div>
+                    <!-- 슬라이드 2 -->
+                    <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1539109136881-3be0616acf4b?q=80&w=2000&auto=format&fit=crop')">
+                        <div class="slide-content">
+                            <h2 class="accent-blue">ESSENTIAL LINE</h2>
+                            <p>변하지 않는 가치, 클래식의 재해석</p>
+                            <a href="#" class="btn-more">SHOP NOW</a>
+                        </div>
+                    </div>
+                    <!-- 슬라이드 3 -->
+                    <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1509631179647-0177331693ae?q=80&w=2000&auto=format&fit=crop')">
+                        <div class="slide-content">
+                            <h2 class="accent-green">911 SPECIAL</h2>
+                            <p>패션 그 이상의 예술적 영감</p>
+                            <a href="#" class="btn-more">DISCOVER</a>
+                        </div>
+                    </div>
+
+                </div>
+                <!-- 네비게이션 점 -->
+                <div class="slider-dots">
+                    <span class="dot active"></span>
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                </div>
+            </div>
+        </section>
+    
+        <!-- 기존 이벤트 카드 영역 -->
+        <section class="event-cards container">
+            <!-- ... 기존 내용 ... -->
+        </section>
+
+
+        <section class="hero">
+            <div class="container">
+                <h1>ELEVATE YOUR <span class="accent-blue">STYLE</span></h1>
+                <p>Private Fashion Designer Collection</p>
+            </div>
+        </section>
+
+        <section class="event-cards container">
+            <div class="card">
+                <div class="card-image" style="background-image: url('https://images.unsplash.com/photo-1539109136881-3be0616acf4b?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80')"></div>
+                <div class="card-content">
+                    <span class="tag green-tag">NEW</span>
+                    <h3>2024 Winter Collection</h3>
+                    <p>심플하면서도 강렬한 블랙의 미학을 담은 새로운 컬렉션.</p>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-image" style="background-image: url('https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80')"></div>
+                <div class="card-content">
+                    <span class="tag blue-tag">EVENT</span>
+                    <h3>The Private Show</h3>
+                    <p>오직 당신만을 위한 프라이빗 패션쇼에 초대합니다.</p>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-image" style="background-image: url('https://images.unsplash.com/photo-1554412930-071a93897ca1?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80')"></div>
+                <div class="card-content">
+                    <span class="tag green-tag">GALLERY</span>
+                    <h3>Studio Works</h3>
+                    <p>디자이너의 영감이 담긴 작업실의 비하인드 컷.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+
+
+    <footer>
+        <div class="container footer-content">
+            <div class="footer-logo">
+                <span class="logo-text">FASHION <span class="accent-green">911</span></span>
+            </div>
+            <div class="footer-info">
+                <p>&copy; 2024 Fashion 911. All Rights Reserved.</p>
+                <p>Seoul, Korea | Contact: info@fashion911.com</p>
+                <p>Designer. Kim Fashion</p>
+            </div>
+        </div>
+    </footer>
+
+
+    <script src="script.js"></script>
+
+    
+</body>
+</html>
+
