@@ -1,6 +1,35 @@
 // Theme Toggle Logic
 const themeToggle = document.getElementById('theme-toggle');
 const body = document.body;
+const header = document.querySelector('header');
+const mainNavigation = document.getElementById('main-navigation');
+const menuToggle = document.querySelector('.menu-toggle');
+
+mainNavigation.addEventListener('pointerenter', () => {
+    if (window.matchMedia('(min-width: 769px)').matches) {
+        header.classList.add('menu-open');
+    }
+});
+
+header.addEventListener('pointerleave', () => {
+    header.classList.remove('menu-open');
+});
+
+header.addEventListener('focusin', () => {
+    header.classList.add('menu-open');
+});
+
+header.addEventListener('focusout', (event) => {
+    if (!header.contains(event.relatedTarget)) {
+        header.classList.remove('menu-open');
+    }
+});
+
+menuToggle.addEventListener('click', () => {
+    const isOpen = header.classList.toggle('mobile-menu-open');
+    menuToggle.setAttribute('aria-expanded', String(isOpen));
+    menuToggle.setAttribute('aria-label', isOpen ? '메뉴 닫기' : '메뉴 열기');
+});
 
 // 테마 설정 함수
 function setTheme(theme) {

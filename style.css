@@ -80,8 +80,9 @@ header {
 
 
 .header-content {
-    display: flex;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr) auto;
+    gap: 2rem;
     align-items: center;
 }
 
@@ -93,11 +94,12 @@ header {
 
 nav ul {
     display: flex;
+    justify-content: space-evenly;
     list-style: none;
 }
 
 nav ul li {
-    margin-left: 2.5rem;
+    margin: 0 0.75rem;
 }
 
 nav ul li a {
@@ -111,6 +113,103 @@ nav ul li a {
 
 nav ul li a:hover, nav ul li a.active {
     color: var(--accent-green);
+}
+
+nav ul li a:hover {
+    color: #fff;
+}
+
+.header-actions {
+    display: flex;
+    align-items: center;
+}
+
+.menu-toggle {
+    display: none;
+    width: 40px;
+    height: 40px;
+    padding: 9px;
+    border: 0;
+    background: none;
+    color: var(--text-primary);
+    cursor: pointer;
+}
+
+.menu-toggle span {
+    display: block;
+    height: 2px;
+    margin: 4px 0;
+    background: currentColor;
+}
+
+.mega-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    max-height: 0;
+    overflow: hidden;
+    visibility: hidden;
+    opacity: 0;
+    background: #1a1a1a;
+    color: #aaa;
+    transition: max-height 0.35s ease-out, opacity 0.3s ease-out, visibility 0s linear 0.35s;
+}
+
+.menu-open .mega-menu {
+    max-height: 360px;
+    visibility: visible;
+    opacity: 1;
+    transition: max-height 0.35s ease-out, opacity 0.3s ease-out, visibility 0s;
+}
+
+.mega-menu-inner {
+    display: grid;
+    grid-template-columns: 12rem minmax(0, 1fr) 40px;
+    gap: 2rem;
+    padding-top: 2.5rem;
+    padding-bottom: 2.5rem;
+}
+
+.mega-menu-columns {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 1rem;
+}
+
+.mega-menu-column {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    opacity: 0;
+    transform: translateY(-5px);
+    transition: opacity 0.2s ease-out, transform 0.2s ease-out;
+}
+
+.menu-open .mega-menu-column {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: 0.12s;
+}
+
+.mega-menu-column h2 {
+    margin-bottom: 0.85rem;
+    color: #fff;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+}
+
+.mega-menu-column a {
+    padding: 0.2rem 0;
+    color: #aaa;
+    font-size: 0.85rem;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.mega-menu-column a:hover,
+.mega-menu-column a:focus-visible {
+    color: #fff;
 }
 
 /* Theme Toggle */
@@ -375,4 +474,80 @@ footer {
 @media (max-width: 768px) {
     .slide-content h2 { font-size: 3rem; }
     .slide-content p { font-size: 1rem; }
+}
+
+@media (max-width: 768px) {
+    header {
+        padding: 1rem 0;
+    }
+
+    .header-content {
+        grid-template-columns: minmax(0, 1fr) auto;
+        gap: 0.75rem;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    .theme-toggle {
+        margin-left: 0.5rem;
+    }
+
+    #main-navigation {
+        display: none;
+        grid-column: 1 / -1;
+        width: 100%;
+    }
+
+    .mobile-menu-open #main-navigation {
+        display: block;
+    }
+
+    #main-navigation ul {
+        justify-content: space-between;
+        margin-top: 0.5rem;
+    }
+
+    #main-navigation ul li {
+        margin: 0;
+    }
+
+    #main-navigation ul li a {
+        font-size: 0.75rem;
+    }
+
+    .mega-menu {
+        position: static;
+        max-height: 0;
+        width: 100%;
+        transition: max-height 0.35s ease-out, opacity 0.3s ease-out, visibility 0s linear 0.35s;
+    }
+
+    .mobile-menu-open .mega-menu {
+        max-height: 900px;
+        visibility: visible;
+        opacity: 1;
+        transition: max-height 0.35s ease-out, opacity 0.3s ease-out, visibility 0s;
+    }
+
+    .mega-menu-inner {
+        display: block;
+        padding-top: 1.25rem;
+        padding-bottom: 1.25rem;
+    }
+
+    .mega-menu-spacer {
+        display: none;
+    }
+
+    .mega-menu-columns {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 1.5rem 1rem;
+    }
+
+    .mobile-menu-open .mega-menu-column {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
