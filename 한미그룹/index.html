@@ -2258,6 +2258,573 @@
         }
       }
 
+      /* ---------- Tasks (직무 찾기) ---------- */
+      .tasks {
+        --tasks-accent: #ff5d32;
+        position: relative;
+        overflow: hidden;
+        background: #ffffff;
+      }
+
+      .tasks-hero {
+        position: relative;
+        height: 420px;
+        overflow: hidden;
+        background:
+          linear-gradient(180deg, #ffe2da 0%, #fff8f5 76%, #ffffff 100%);
+      }
+
+      .tasks-hero::before {
+        position: absolute;
+        top: 0;
+        left: 50%;
+        width: min(100%, 1440px);
+        height: 100%;
+        transform: translateX(-50%);
+        background: url("./images/tasks_bg_title.svg") center top / 100% auto
+          no-repeat;
+        opacity: 0.16;
+        content: "";
+      }
+
+      .tasks-character {
+        position: absolute;
+        bottom: -5px;
+        left: 50%;
+        width: 330px;
+        height: 250px;
+        transform: translateX(-50%);
+        object-fit: contain;
+        object-position: center bottom;
+      }
+
+      .tasks-content {
+        max-width: 1440px;
+        margin: 0 auto;
+        padding: 82px 60px 100px;
+      }
+
+      .tasks-heading {
+        margin: 0 0 14px;
+        font-size: 30px;
+        font-weight: 800;
+        line-height: 1.45;
+        letter-spacing: -0.04em;
+        text-align: center;
+      }
+
+      .tasks-intro {
+        margin: 0 0 48px;
+        color: #555555;
+        font-size: 15px;
+        line-height: 1.7;
+        text-align: center;
+      }
+
+      .tasks-tab-scroll {
+        max-width: 1200px;
+        margin: 0 auto 28px;
+      }
+
+      .tasks-tabs {
+        display: grid;
+        grid-template-columns: repeat(7, minmax(0, 1fr));
+        gap: 12px;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .tasks-tab {
+        width: 100%;
+        min-height: 60px;
+        padding: 12px 10px;
+        border-radius: 14px;
+        background: transparent;
+        color: #777777;
+        font-size: 16px;
+        font-weight: 600;
+        white-space: nowrap;
+        transition:
+          background-color var(--transition),
+          box-shadow var(--transition),
+          color var(--transition);
+      }
+
+      .tasks-tab:hover,
+      .tasks-tab[aria-selected="true"] {
+        background: #fffaf8;
+        box-shadow:
+          0 4px 14px rgba(89, 49, 37, 0.12),
+          inset 0 0 0 1px #ffe5dc;
+        color: var(--tasks-accent);
+      }
+
+      .tasks-departments {
+        max-width: 1300px;
+        margin: 0 auto;
+        border-top: 1px solid #e4e4e4;
+      }
+
+      .tasks-department {
+        border-bottom: 1px solid #e4e4e4;
+      }
+
+      .tasks-department-summary {
+        display: flex;
+        width: 100%;
+        min-height: 68px;
+        align-items: center;
+        justify-content: space-between;
+        gap: 20px;
+        padding: 18px 22px;
+        background: transparent;
+        color: #777777;
+        cursor: pointer;
+        font-size: 18px;
+        font-weight: 700;
+        line-height: 1.5;
+      }
+
+      .tasks-department.is-open .tasks-department-summary {
+        color: var(--tasks-accent);
+      }
+
+      .tasks-department-panel {
+        display: grid;
+        grid-template-rows: 0fr;
+        opacity: 0;
+        transition:
+          grid-template-rows 0.35s ease,
+          opacity 0.25s ease;
+      }
+
+      .tasks-department.is-open .tasks-department-panel {
+        grid-template-rows: 1fr;
+        opacity: 1;
+      }
+
+      .tasks-department-panel-inner {
+        min-height: 0;
+        overflow: hidden;
+      }
+
+      .tasks-count {
+        display: inline-flex;
+        min-width: 28px;
+        height: 22px;
+        flex: 0 0 auto;
+        align-items: center;
+        justify-content: center;
+        padding: 0 8px;
+        border-radius: 999px;
+        background: var(--tasks-accent);
+        color: #ffffff;
+        font-size: 14px;
+        font-weight: 800;
+        line-height: 1;
+      }
+
+      .tasks-cards {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 20px;
+        padding: 0 22px 34px;
+      }
+
+      .tasks-card {
+        display: flex;
+        min-height: 84px;
+        align-items: center;
+        justify-content: space-between;
+        gap: 20px;
+        padding: 20px 28px;
+        border: 1px solid #ffe0d6;
+        border-radius: 18px;
+        background: linear-gradient(110deg, #fffaf8 0%, #ffffff 80%);
+        box-shadow: 0 5px 14px rgba(92, 48, 34, 0.09);
+        color: #111111;
+        cursor: pointer;
+        font-size: 18px;
+        font-weight: 600;
+        line-height: 1.45;
+        text-align: left;
+        transition:
+          border-color var(--transition),
+          transform var(--transition),
+          box-shadow var(--transition);
+      }
+
+      .tasks-card:hover {
+        border-color: #ff9a7e;
+        box-shadow: 0 8px 18px rgba(92, 48, 34, 0.13);
+      }
+
+      .tasks-card-arrow {
+        flex: 0 0 auto;
+        color: #888888;
+        font-size: 25px;
+        font-weight: 400;
+      }
+
+      .tasks-modal {
+        opacity: 0;
+        transform: translateY(14px) scale(0.98);
+        width: min(768px, calc(100vw - 48px));
+        max-width: none;
+        max-height: min(82vh, 760px);
+        overflow: hidden;
+        padding: 0;
+        border: 0;
+        border-radius: 20px;
+        background: #ffffff;
+        box-shadow: 0 18px 70px rgba(0, 0, 0, 0.24);
+        transition:
+          opacity 0.25s ease,
+          transform 0.25s ease,
+          overlay 0.25s allow-discrete,
+          display 0.25s allow-discrete;
+      }
+
+      .tasks-modal[open] {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+
+      @starting-style {
+        .tasks-modal[open] {
+          opacity: 0;
+          transform: translateY(14px) scale(0.98);
+        }
+      }
+
+      .tasks-modal::backdrop {
+        opacity: 0;
+        background: rgba(0, 0, 0, 0.5);
+        transition: opacity 0.25s ease;
+      }
+
+      .tasks-modal[open]::backdrop {
+        opacity: 1;
+      }
+
+      @starting-style {
+        .tasks-modal[open]::backdrop {
+          opacity: 0;
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        .tasks-modal,
+        .tasks-modal::backdrop {
+          transition-duration: 0.01ms;
+        }
+      }
+
+      .tasks-modal-banner {
+        position: relative;
+        height: 154px;
+        background: #d7e9f8 url("./images/tasks_rnd_bg.jpg") center / cover
+          no-repeat;
+      }
+
+      .tasks-modal-close {
+        position: absolute;
+        top: 18px;
+        right: 18px;
+        display: grid;
+        width: 42px;
+        height: 42px;
+        place-items: center;
+        border-radius: 50%;
+        background: var(--tasks-accent);
+        color: #ffffff;
+        font-size: 28px;
+        font-weight: 300;
+        line-height: 1;
+      }
+
+      .tasks-modal-body {
+        max-height: calc(min(82vh, 760px) - 154px);
+        overflow-y: auto;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+        padding: 48px 56px 54px;
+      }
+
+      .tasks-modal-body::-webkit-scrollbar {
+        display: none;
+      }
+
+      .tasks-modal-title-row {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: baseline;
+        gap: 8px 18px;
+        margin-bottom: 6px;
+      }
+
+      .tasks-modal-title {
+        margin: 0;
+        font-size: 25px;
+        font-weight: 700;
+        line-height: 1.4;
+        letter-spacing: -0.03em;
+      }
+
+      .tasks-modal-category,
+      .tasks-modal-department {
+        color: #777777;
+        font-size: 14px;
+        font-weight: 500;
+      }
+
+      .tasks-modal-category {
+        color: var(--tasks-accent);
+      }
+
+      .tasks-modal-recruit-type {
+        margin: 0 0 48px;
+        color: #555555;
+        font-size: 13px;
+      }
+
+      .tasks-modal-section + .tasks-modal-section {
+        margin-top: 34px;
+        padding-top: 34px;
+        border-top: 1px solid #dddddd;
+      }
+
+      .tasks-modal-section h3 {
+        margin: 0 0 16px;
+        font-size: 18px;
+        font-weight: 700;
+      }
+
+      .tasks-modal-section ul {
+        display: grid;
+        gap: 10px;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .tasks-modal-section li {
+        position: relative;
+        padding-left: 15px;
+        color: #333333;
+        font-size: 14px;
+        line-height: 1.7;
+      }
+
+      .tasks-modal-section li::before {
+        position: absolute;
+        top: 0.65em;
+        left: 0;
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background: var(--tasks-accent);
+        content: "";
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        .tasks-department-panel {
+          transition: none;
+        }
+      }
+
+      @media (max-width: 1024px) {
+        .tasks-hero {
+          height: 400px;
+        }
+
+        .tasks-character {
+          width: 440px;
+          height: 265px;
+        }
+
+        .tasks-content {
+          padding: 82px 28px 80px;
+        }
+
+        .tasks-heading {
+          font-size: 28px;
+        }
+
+        .tasks-intro {
+          margin-bottom: 42px;
+        }
+
+        .tasks-tabs {
+          gap: 8px;
+        }
+
+        .tasks-tab-scroll {
+          margin-bottom: 24px;
+        }
+
+        .tasks-tab {
+          min-height: 56px;
+          padding: 10px 6px;
+          font-size: 14px;
+        }
+
+        .tasks-cards {
+          gap: 16px;
+        }
+
+        .tasks-card {
+          min-height: 76px;
+          padding: 18px 22px;
+          font-size: 16px;
+        }
+      }
+
+      @media (max-width: 568px) {
+        .tasks-hero {
+          height: 335px;
+        }
+
+        .tasks-hero::before {
+          width: 150%;
+          background-size: auto 72px;
+        }
+
+        .tasks-character {
+          bottom: -4px;
+          width: 390px;
+          height: 240px;
+        }
+
+        .tasks-content {
+          padding: 70px 20px 64px;
+        }
+
+        .tasks-heading {
+          margin-bottom: 12px;
+          font-size: 22px;
+          line-height: 1.55;
+        }
+
+        .tasks-intro {
+          max-width: 340px;
+          margin: 0 auto 34px;
+          font-size: 12px;
+          line-height: 1.7;
+        }
+
+        .tasks-tab-scroll {
+          overflow-x: auto;
+          margin: 0 -20px 20px;
+          padding: 0 20px 8px;
+          overscroll-behavior-x: contain;
+          scrollbar-width: none;
+          -webkit-overflow-scrolling: touch;
+          touch-action: pan-x;
+          user-select: none;
+          cursor: grab;
+        }
+
+        .tasks-tab-scroll::-webkit-scrollbar {
+          display: none;
+        }
+
+        .tasks-tabs {
+          display: flex;
+          width: max-content;
+          min-width: 100%;
+          flex-wrap: nowrap;
+          gap: 8px;
+          justify-content: flex-start;
+          scroll-snap-type: x mandatory;
+        }
+
+        .tasks-tab {
+          width: 92px;
+          min-width: 0;
+          min-height: 56px;
+          flex: 0 0 92px;
+          scroll-snap-align: start;
+        }
+
+        .tasks-departments {
+          margin: 0;
+        }
+
+        .tasks-department-summary {
+          min-height: 62px;
+          gap: 12px;
+          padding: 16px 18px;
+          font-size: 15px;
+        }
+
+        .tasks-count {
+          min-width: 25px;
+          height: 20px;
+          font-size: 12px;
+        }
+
+        .tasks-cards {
+          grid-template-columns: minmax(0, 1fr);
+          gap: 12px;
+          padding: 0 10px 24px;
+        }
+
+        .tasks-card {
+          min-height: 64px;
+          padding: 16px 18px;
+          border-radius: 15px;
+          font-size: 14px;
+        }
+
+        .tasks-card-arrow {
+          font-size: 22px;
+        }
+
+        .tasks-modal {
+          width: calc(100vw - 28px);
+          max-height: 88vh;
+          border-radius: 16px;
+        }
+
+        .tasks-modal-banner {
+          height: 112px;
+        }
+
+        .tasks-modal-close {
+          top: 12px;
+          right: 12px;
+          width: 36px;
+          height: 36px;
+          font-size: 24px;
+        }
+
+        .tasks-modal-body {
+          max-height: calc(88vh - 112px);
+          padding: 28px 24px 34px;
+        }
+
+        .tasks-modal-title {
+          font-size: 20px;
+        }
+
+        .tasks-modal-category,
+        .tasks-modal-department {
+          font-size: 12px;
+        }
+
+        .tasks-modal-recruit-type {
+          margin-bottom: 32px;
+        }
+
+        .tasks-modal-section + .tasks-modal-section {
+          margin-top: 26px;
+          padding-top: 26px;
+        }
+
+      }
+
       /* ---------- Welfare (회사 복지) ---------- */
       .welfare {
         --u: calc(1px * var(--scale));
@@ -2320,12 +2887,14 @@
 
       .welfare-subhead {
         display: flex;
+        flex-wrap: wrap;
         align-items: baseline;
         gap: calc(16 * var(--u));
         margin: 0 0 calc(20 * var(--u));
       }
 
       .welfare-subtitle {
+        flex: 0 1 auto;
         margin: 0;
         color: #ff522b;
         font-size: calc(22 * var(--u));
@@ -2334,40 +2903,45 @@
       }
 
       .welfare-subdesc {
+        flex: 0 1 auto;
         margin: 0;
         color: #555555;
         font-size: calc(14 * var(--u));
         font-weight: 500;
       }
 
-      .welfare-list {
-        display: grid;
+      .welfare-scrollbox {
         max-height: calc(840 * var(--u));
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        grid-auto-rows: calc(148 * var(--u));
-        gap: calc(20 * var(--u)) calc(24 * var(--u));
         overflow-x: hidden;
         overflow-y: auto;
-        margin: 0;
-        padding: 0 calc(16 * var(--u)) calc(6 * var(--u)) 0;
-        list-style: none;
+        padding-right: calc(16 * var(--u));
         scrollbar-color: #ff684d #eeeeee;
         scrollbar-width: thin;
       }
 
-      .welfare-list::-webkit-scrollbar {
+      .welfare-scrollbox::-webkit-scrollbar {
         width: 6px;
       }
 
-      .welfare-list::-webkit-scrollbar-track {
+      .welfare-scrollbox::-webkit-scrollbar-track {
         border-radius: 999px;
         background: #eeeeee;
       }
 
-      .welfare-list::-webkit-scrollbar-thumb {
+      .welfare-scrollbox::-webkit-scrollbar-thumb {
         border: 1px solid #ffffff;
         border-radius: 999px;
         background: #ff684d;
+      }
+
+      .welfare-list {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        grid-auto-rows: calc(148 * var(--u));
+        gap: calc(20 * var(--u)) calc(24 * var(--u));
+        margin: 0;
+        padding: 0;
+        list-style: none;
       }
 
       .welfare-item {
@@ -2451,10 +3025,13 @@
         }
 
         .welfare-list {
-          max-height: 900px;
           grid-template-columns: minmax(0, 1fr);
           grid-auto-rows: 156px;
           gap: 24px;
+        }
+
+        .welfare-scrollbox {
+          max-height: 900px;
           padding-right: 14px;
         }
 
@@ -2523,6 +3100,10 @@
           margin-bottom: 18px;
         }
 
+        .welfare-list + .welfare-subhead {
+          margin-top: 18px;
+        }
+
         .welfare-subtitle {
           margin-bottom: 4px;
           font-size: 16px;
@@ -2535,14 +3116,17 @@
         }
 
         .welfare-list {
-          max-height: 472px;
           grid-template-columns: minmax(0, 1fr);
           grid-auto-rows: 106px;
           gap: 12px;
+        }
+
+        .welfare-scrollbox {
+          max-height: 472px;
           padding-right: 10px;
         }
 
-        .welfare-list::-webkit-scrollbar {
+        .welfare-scrollbox::-webkit-scrollbar {
           width: 5px;
         }
 
@@ -3265,6 +3849,8 @@
         </div>
       </section>
 
+      
+
       <!-- 회사 복지 섹션 -->
       <section class="welfare" id="welfare" aria-labelledby="welfare-title">
         <img
@@ -3289,16 +3875,22 @@
             </p>
           </header>
 
-          <div class="welfare-subhead">
-            <h3 class="welfare-subtitle">
-              <span aria-hidden="true">💗</span> 오늘의 나도, 내일의 나도 든든하게!
-            </h3>
-            <p class="welfare-subdesc">
-              건강, 성장, 문화생활까지 알차게 챙겨드려요.
-            </p>
-          </div>
-
-          <ul class="welfare-list" aria-label="회사 복지 목록" tabindex="0">
+          <div
+            class="welfare-scrollbox"
+            role="region"
+            tabindex="0"
+            aria-label="회사 복지 목록"
+          >
+            <div class="welfare-subhead">
+              <h3 class="welfare-subtitle">
+                <span aria-hidden="true">💗</span> 오늘의 나도, 내일의 나도
+                든든하게!
+              </h3>
+              <p class="welfare-subdesc">
+                건강, 성장, 문화생활까지 알차게 챙겨드려요.
+              </p>
+            </div>
+            <ul class="welfare-list">
             <li class="welfare-item">
               <article class="welfare-card">
                 <div class="welfare-card-copy">
@@ -3374,6 +3966,17 @@
                 />
               </article>
             </li>
+            </ul>
+            <div class="welfare-subhead">
+              <h3 class="welfare-subtitle">
+                <span aria-hidden="true">🏠</span> 가족의 행복도 빼놓을 수
+                없죠!
+              </h3>
+              <p class="welfare-subdesc">
+                축하할 때도, 도움이 필요할 때도 한미가 함께해요.
+              </p>
+            </div>
+            <ul class="welfare-list">
             <li class="welfare-item">
               <article class="welfare-card">
                 <div class="welfare-card-copy">
@@ -3600,7 +4203,156 @@
               </article>
             </li>
           </ul>
+          </div>
         </div>
+      </section>
+
+      <!-- 직무 탐색 섹션 -->
+      <section class="tasks" id="tasks" aria-labelledby="tasks-title">
+        <div class="tasks-hero" aria-hidden="true">
+          <img
+            class="tasks-character"
+            src="./images/tasks_character.png"
+            alt=""
+          />
+        </div>
+
+        <div class="tasks-content">
+          <header class="tasks-header">
+            <h2 class="tasks-heading" id="tasks-title">
+              알약이를 따라<br />
+              나에게 맞는 직무를 찾아봐요!
+            </h2>
+            <p class="tasks-intro">
+              연구부터 생산, 영업, 경영지원까지 당신의 가능성이 빛날 자리를
+              안내해 드릴게요.
+            </p>
+          </header>
+
+          <nav aria-label="직무 분야">
+            <div class="tasks-tab-scroll" aria-label="직무 메뉴 가로 스크롤">
+              <div class="tasks-tabs" role="tablist">
+                <button
+                  class="tasks-tab"
+                  id="tasks-tab-0"
+                  type="button"
+                  role="tab"
+                  aria-selected="true"
+                  aria-controls="tasks-departments"
+                  data-category="rnd"
+                >
+                  R&amp;D
+                </button>
+                <button
+                  class="tasks-tab"
+                  id="tasks-tab-1"
+                  type="button"
+                  role="tab"
+                  aria-selected="false"
+                  aria-controls="tasks-departments"
+                  data-category="prod"
+                  tabindex="-1"
+                >
+                  생산/품질
+                </button>
+                <button
+                  class="tasks-tab"
+                  id="tasks-tab-2"
+                  type="button"
+                  role="tab"
+                  aria-selected="false"
+                  aria-controls="tasks-departments"
+                  data-category="sales"
+                  tabindex="-1"
+                >
+                  영업
+                </button>
+                <button
+                  class="tasks-tab"
+                  id="tasks-tab-3"
+                  type="button"
+                  role="tab"
+                  aria-selected="false"
+                  aria-controls="tasks-departments"
+                  data-category="mps"
+                  tabindex="-1"
+                >
+                  경영관리
+                </button>
+                <button
+                  class="tasks-tab"
+                  id="tasks-tab-4"
+                  type="button"
+                  role="tab"
+                  aria-selected="false"
+                  aria-controls="tasks-departments"
+                  data-category="cl"
+                  tabindex="-1"
+                >
+                  임상
+                </button>
+                <button
+                  class="tasks-tab"
+                  id="tasks-tab-5"
+                  type="button"
+                  role="tab"
+                  aria-selected="false"
+                  aria-controls="tasks-departments"
+                  data-category="global"
+                  tabindex="-1"
+                >
+                  글로벌
+                </button>
+                <button
+                  class="tasks-tab"
+                  id="tasks-tab-6"
+                  type="button"
+                  role="tab"
+                  aria-selected="false"
+                  aria-controls="tasks-departments"
+                  data-category="healthcare"
+                  tabindex="-1"
+                >
+                  헬스케어
+                </button>
+              </div>
+            </div>
+          </nav>
+
+          <div
+            class="tasks-departments"
+            id="tasks-departments"
+            role="tabpanel"
+            aria-labelledby="tasks-tab-0"
+            tabindex="0"
+          ></div>
+        </div>
+
+        <dialog
+          class="tasks-modal"
+          aria-labelledby="tasks-modal-title"
+          aria-describedby="tasks-modal-recruit-type"
+        >
+          <div class="tasks-modal-banner">
+            <button
+              class="tasks-modal-close"
+              type="button"
+              aria-label="직무 상세 닫기"
+            >
+              &times;
+            </button>
+          </div>
+          <div class="tasks-modal-body">
+            <div class="tasks-modal-title-row">
+              <h2 class="tasks-modal-title" id="tasks-modal-title"></h2>
+              <span class="tasks-modal-category"></span>
+              <span aria-hidden="true">|</span>
+              <span class="tasks-modal-department"></span>
+            </div>
+            <p class="tasks-modal-recruit-type" id="tasks-modal-recruit-type"></p>
+            <div class="tasks-modal-sections"></div>
+          </div>
+        </dialog>
       </section>
     </main>
 
@@ -3668,6 +4420,628 @@
             }
           });
         });
+      })();
+
+      // 직무 섹션: 분야 선택, 부서 아코디언, 직무 상세 모달
+      (function () {
+        var tabs = Array.from(document.querySelectorAll(".tasks-tab"));
+        var departmentsElement = document.getElementById("tasks-departments");
+        var modal = document.querySelector(".tasks-modal");
+        if (!tabs.length || !departmentsElement || !modal) return;
+        var modalBody = modal.querySelector(".tasks-modal-body");
+        var modalBanner = modal.querySelector(".tasks-modal-banner");
+
+        function role(name, duties, requirements, career) {
+          return {
+            name: name,
+            duties: duties,
+            requirements: requirements,
+            career: career || "신입/경력",
+          };
+        }
+
+        var categories = [
+          {
+            name: "R&D",
+            departments: [
+              {
+                name: "연구센터 (경기도 동탄)",
+                roles: [
+                  role(
+                    "NCE (New Chemical Entity)",
+                    [
+                      "저분자 기반 비만대사 신약 개발 연구",
+                      "약물설계, 유기화합물 합성 및 후보물질 탐색",
+                    ],
+                    [
+                      "석사 이상 학력 소지자",
+                      "화학, 약학 등 관련 전공자",
+                      "의약 화학, 유기합성 등 신약개발 연구분야 지식 보유자",
+                    ],
+                  ),
+                  role(
+                    "QS&F (Quality Science & Formulation)",
+                    ["신약 후보물질의 제형 및 품질 특성 연구", "제제 처방과 분석법 개발"],
+                    ["약학, 화학, 생명과학 등 관련 전공자", "제제 또는 분석 연구 경험자 우대"],
+                  ),
+                  role(
+                    "MST (Manufacturing Science Technology)",
+                    ["연구 결과의 제조 공정 적용성 검토", "공정 조건 최적화 및 기술 이전 지원"],
+                    ["약학, 화학공학 등 관련 전공자", "의약품 공정 연구에 관심이 있는 분"],
+                  ),
+                  role(
+                    "TE (Toxicology Evaluation)",
+                    ["신약 후보물질의 비임상 안전성 평가", "독성시험 결과 분석 및 보고서 작성"],
+                    ["수의학, 약학, 생명과학 등 관련 전공자", "비임상 평가 또는 독성 연구 경험자 우대"],
+                  ),
+                  role(
+                    "DST (Drug Science & Technology)",
+                    ["신약 후보물질의 약효와 작용기전 연구", "질환 모델을 활용한 후보물질 평가"],
+                    ["생명과학, 약학 등 관련 전공자", "세포·분자생물학 실험 경험자"],
+                  ),
+                  role(
+                    "BSS (Biological & Structural Evaluation Science)",
+                    ["생물학적 활성 및 구조 기반 후보물질 평가", "실험 데이터 분석과 연구 결과 정리"],
+                    ["생명과학, 생화학 등 관련 전공자", "단백질 또는 구조 분석 경험자 우대"],
+                  ),
+                ],
+              },
+              {
+                name: "제제연구소 [의약혁신센터] (경기도 광교)",
+                roles: [
+                  role(
+                    "제제연구",
+                    ["의약품 제형 설계와 제제 연구", "제품 특성에 맞는 제조 조건과 품질 평가"],
+                    ["약학, 화학 등 관련 전공자", "의약품 제제 연구 경험자 우대"],
+                  ),
+                ],
+              },
+            ],
+          },
+          {
+            name: "생산/품질",
+            departments: [
+              {
+                name: "생산본부 (경기도 팔탄)",
+                roles: [
+                  role("의약품 생산", ["의약품 제조 공정 운영과 생산 실적 관리", "작업 기준에 따른 공정 점검 및 개선"], ["약학, 화학, 생명과학 등 관련 전공자", "교대 근무 가능자 우대"]),
+                  role("공정기술", ["제조 공정의 개선과 생산성 향상", "공정 데이터 분석 및 기술 지원"], ["화학공학, 산업공학 등 관련 전공자", "제조 공정에 대한 이해가 있는 분"]),
+                ],
+              },
+              {
+                name: "품질본부 (경기도 팔탄)",
+                roles: [
+                  role("품질관리", ["원료·제품의 품질 시험과 결과 검토", "시험 장비 및 시험 기록 관리"], ["약학, 화학, 생명과학 등 관련 전공자", "분석 장비 사용 경험자 우대"]),
+                  role("품질보증", ["품질 시스템 및 제조 기록 검토", "품질 이슈 조사와 재발 방지 활동"], ["약학 등 관련 전공자", "GMP 또는 품질 업무 경험자 우대"]),
+                ],
+              },
+            ],
+          },
+          {
+            name: "영업",
+            departments: [
+              {
+                name: "국내사업부",
+                roles: [
+                  role("전문의약품 영업", ["의료기관 대상 제품 정보와 학술 자료 전달", "거래처 관계 관리 및 영업 활동 계획 수립"], ["전공 무관", "원활한 커뮤니케이션 역량을 갖춘 분"]),
+                  role("마케팅", ["제품 및 시장 분석을 바탕으로 마케팅 전략 수립", "학술 행사와 홍보 콘텐츠 기획"], ["전공 무관", "시장 분석 및 기획에 관심이 있는 분"]),
+                ],
+              },
+              {
+                name: "일반의약품·컨슈머사업부",
+                roles: [
+                  role("일반의약품 영업", ["약국 및 유통 거래처 대상 영업 활동", "시장 동향 파악과 거래처 지원"], ["전공 무관", "고객 중심의 업무 태도를 갖춘 분"]),
+                  role("영업기획", ["영업 실적과 시장 데이터 분석", "영업 정책 및 운영 계획 수립 지원"], ["전공 무관", "데이터 활용과 문서 작성 역량을 갖춘 분"]),
+                ],
+              },
+            ],
+          },
+          {
+            name: "경영관리",
+            departments: [
+              {
+                name: "경영지원본부",
+                roles: [
+                  role("인사", ["인사 제도 및 채용·육성 프로그램 운영", "조직과 구성원 지원 업무"], ["전공 무관", "원활한 소통과 문서 작성 역량을 갖춘 분"]),
+                  role("재무회계", ["회계 결산과 재무 자료 작성", "회계 기준에 따른 거래 및 계정 검토"], ["회계·경영 관련 전공자 우대", "회계 지식 또는 관련 자격 보유자 우대"]),
+                ],
+              },
+              {
+                name: "전략기획실",
+                roles: [
+                  role("사업기획", ["사업 현황과 시장 데이터 분석", "중장기 사업 계획 및 성과 관리 지원"], ["경영·경제 등 관련 전공자 우대", "분석적 사고와 문서 작성 역량을 갖춘 분"]),
+                  role("구매·자재관리", ["구매 계획 및 협력사 운영 지원", "자재 수급과 재고 현황 관리"], ["전공 무관", "꼼꼼한 업무 처리와 협업 역량을 갖춘 분"]),
+                ],
+              },
+            ],
+          },
+          {
+            name: "임상",
+            departments: [
+              {
+                name: "임상개발본부",
+                roles: [
+                  role("임상시험 운영", ["임상시험 계획과 진행 상황 관리", "의료기관 및 협력사와의 일정·자료 조율"], ["약학, 간호학, 생명과학 등 관련 전공자", "임상시험 또는 연구 업무 경험자 우대"]),
+                  role("임상개발 기획", ["임상 개발 전략과 일정 수립 지원", "임상 자료 검토 및 유관 부서 협업"], ["약학, 생명과학 등 관련 전공자", "임상 개발에 대한 이해가 있는 분"]),
+                ],
+              },
+              {
+                name: "임상데이터·통계팀",
+                roles: [
+                  role("임상 데이터 관리", ["임상시험 데이터 수집·검토·정합성 관리", "데이터 관리 문서와 일정 운영"], ["통계, 보건, 생명과학 등 관련 전공자", "데이터 관리 또는 임상시험 경험자 우대"]),
+                  role("임상 통계", ["임상시험 통계 분석 계획 수립", "시험 결과 분석 및 해석 지원"], ["통계학 또는 관련 전공 석사 이상 우대", "통계 분석 도구 활용 경험자"]),
+                ],
+              },
+            ],
+          },
+          {
+            name: "글로벌",
+            departments: [
+              {
+                name: "글로벌사업본부",
+                roles: [
+                  role("해외사업개발", ["해외 시장과 사업 기회 조사", "파트너십 및 사업개발 프로젝트 지원"], ["전공 무관", "외국어 커뮤니케이션 역량을 갖춘 분"]),
+                  role("해외영업", ["해외 거래처와 제품 공급 및 영업 협의", "수출 일정과 시장 동향 관리"], ["전공 무관", "영어 등 외국어 활용 능력 보유자"]),
+                ],
+              },
+              {
+                name: "글로벌전략팀",
+                roles: [
+                  role("글로벌 마케팅", ["해외 시장별 제품·경쟁 환경 분석", "현지화 마케팅 자료와 캠페인 기획"], ["마케팅 또는 관련 전공자 우대", "외국어 자료 작성 및 소통 역량을 갖춘 분"]),
+                  role("글로벌 사업관리", ["해외 사업 실적 및 프로젝트 진행 관리", "내부 유관 부서와 해외 파트너 간 협업"], ["전공 무관", "외국어와 문서 작성 역량을 갖춘 분"]),
+                ],
+              },
+            ],
+          },
+          {
+            name: "헬스케어",
+            departments: [
+              {
+                name: "헬스케어사업본부",
+                roles: [
+                  role("건강기능식품 기획", ["건강기능식품 시장과 소비자 트렌드 분석", "제품 콘셉트 및 출시 계획 수립"], ["식품, 생명과학, 마케팅 등 관련 전공자 우대", "제품 기획에 관심이 있는 분"]),
+                  role("컨슈머 제품 마케팅", ["소비자 제품 브랜드 및 캠페인 운영", "온라인·오프라인 채널별 홍보 기획"], ["전공 무관", "마케팅 콘텐츠 기획 경험자 우대"]),
+                ],
+              },
+              {
+                name: "디지털헬스사업팀",
+                roles: [
+                  role("디지털헬스 서비스 기획", ["건강관리 서비스 사용자 경험과 기능 기획", "서비스 운영 데이터 분석 및 개선"], ["산업공학, 보건, IT 등 관련 전공자 우대", "디지털 서비스 기획에 관심이 있는 분"]),
+                  role("헬스케어 사업운영", ["헬스케어 서비스 운영과 파트너 협업", "고객 피드백 기반 운영 프로세스 개선"], ["전공 무관", "서비스 운영 또는 고객 경험 업무 경험자 우대"]),
+                ],
+              },
+            ],
+          },
+        ];
+
+        var modalTitle = modal.querySelector(".tasks-modal-title");
+        var modalCategory = modal.querySelector(".tasks-modal-category");
+        var modalDepartment = modal.querySelector(".tasks-modal-department");
+        var modalRecruitType = modal.querySelector(
+          ".tasks-modal-recruit-type",
+        );
+        var modalSections = modal.querySelector(".tasks-modal-sections");
+        var dataReady = false;
+        var popupRecords = Object.create(null);
+
+        categories = [];
+        tabs.forEach(function (tab) {
+          tab.disabled = true;
+        });
+        departmentsElement.setAttribute("aria-busy", "true");
+
+        function renderCategory(categoryIndex) {
+          var category = categories[categoryIndex];
+          departmentsElement.replaceChildren();
+          departmentsElement.setAttribute(
+            "aria-labelledby",
+            tabs[categoryIndex].id,
+          );
+          category.departments.forEach(function (department, departmentIndex) {
+            var departmentElement = document.createElement("section");
+            departmentElement.className = "tasks-department";
+
+            var summary = document.createElement("button");
+            summary.className = "tasks-department-summary";
+            summary.type = "button";
+            summary.setAttribute("aria-expanded", "false");
+            summary.setAttribute(
+              "aria-controls",
+              "tasks-department-panel-" + categoryIndex + "-" + departmentIndex,
+            );
+            var name = document.createElement("span");
+            name.textContent = department.name;
+            var count = document.createElement("span");
+            count.className = "tasks-count";
+            count.textContent = String(department.roles.length);
+            count.setAttribute(
+              "aria-label",
+              department.roles.length + "개 직무",
+            );
+            summary.append(name, count);
+
+            var panel = document.createElement("div");
+            panel.className = "tasks-department-panel";
+            panel.id =
+              "tasks-department-panel-" + categoryIndex + "-" + departmentIndex;
+            panel.setAttribute("aria-hidden", "true");
+            panel.inert = true;
+            var panelInner = document.createElement("div");
+            panelInner.className = "tasks-department-panel-inner";
+
+            var cards = document.createElement("div");
+            cards.className = "tasks-cards";
+            department.roles.forEach(function (item, roleIndex) {
+              var button = document.createElement("button");
+              button.className = "tasks-card";
+              button.type = "button";
+              button.dataset.category = String(categoryIndex);
+              button.dataset.department = String(departmentIndex);
+              button.dataset.role = String(roleIndex);
+              button.dataset.popupId = item.popupId;
+              var title = document.createElement("span");
+              title.textContent = item.name;
+              var arrow = document.createElement("span");
+              arrow.className = "tasks-card-arrow";
+              arrow.setAttribute("aria-hidden", "true");
+              arrow.textContent = "→";
+              button.append(title, arrow);
+              cards.append(button);
+            });
+
+            panelInner.append(cards);
+            panel.append(panelInner);
+            departmentElement.append(summary, panel);
+            departmentsElement.append(departmentElement);
+          });
+        }
+
+        function selectCategory(index, focusTab) {
+          if (!dataReady || !categories[index]) return;
+          tabs.forEach(function (tab, tabIndex) {
+            var selected = tabIndex === index;
+            tab.setAttribute("aria-selected", selected ? "true" : "false");
+            tab.tabIndex = selected ? 0 : -1;
+          });
+          departmentsElement.setAttribute(
+            "aria-labelledby",
+            tabs[index].id,
+          );
+          renderCategory(index);
+          if (focusTab) tabs[index].focus();
+
+          var tabList = tabs[index].closest(".tasks-tab-scroll");
+          var tab = tabs[index];
+          var targetLeft =
+            tab.offsetLeft - (tabList.clientWidth - tab.offsetWidth) / 2;
+          tabList.scrollTo({ left: Math.max(0, targetLeft) });
+        }
+
+        tabs.forEach(function (tab, index) {
+          tab.addEventListener("click", function () {
+            selectCategory(index, false);
+          });
+          tab.addEventListener("keydown", function (event) {
+            var nextIndex = index;
+            if (event.key === "ArrowRight") nextIndex = (index + 1) % tabs.length;
+            else if (event.key === "ArrowLeft")
+              nextIndex = (index - 1 + tabs.length) % tabs.length;
+            else if (event.key === "Home") nextIndex = 0;
+            else if (event.key === "End") nextIndex = tabs.length - 1;
+            else return;
+            event.preventDefault();
+            selectCategory(nextIndex, true);
+          });
+        });
+
+        var tabScroller = document.querySelector(".tasks-tab-scroll");
+        var dragStartX = 0;
+        var dragStartScrollLeft = 0;
+        var dragStartTab = null;
+        var dragPointerId = null;
+        var isDragging = false;
+        var suppressTabClickTarget = null;
+
+        tabScroller.addEventListener("pointerdown", function (event) {
+          if (
+            event.pointerType !== "mouse" ||
+            event.button !== 0 ||
+            tabScroller.scrollWidth <= tabScroller.clientWidth
+          )
+            return;
+
+          dragStartX = event.clientX;
+          dragStartScrollLeft = tabScroller.scrollLeft;
+          dragStartTab = event.target.closest(".tasks-tab");
+          dragPointerId = event.pointerId;
+          isDragging = false;
+          suppressTabClickTarget = null;
+        });
+
+        tabScroller.addEventListener("pointermove", function (event) {
+          if (dragPointerId !== event.pointerId) return;
+          var distance = event.clientX - dragStartX;
+          if (!isDragging && Math.abs(distance) < 5) return;
+          if (!isDragging) tabScroller.setPointerCapture(event.pointerId);
+          isDragging = true;
+          tabScroller.style.cursor = "grabbing";
+          tabScroller.scrollLeft = dragStartScrollLeft - distance;
+        });
+
+        function stopTabDrag(event) {
+          if (dragPointerId !== event.pointerId) return;
+          if (isDragging) suppressTabClickTarget = dragStartTab;
+          isDragging = false;
+          dragPointerId = null;
+          tabScroller.style.cursor = "";
+          if (tabScroller.hasPointerCapture(event.pointerId))
+            tabScroller.releasePointerCapture(event.pointerId);
+        }
+
+        tabScroller.addEventListener("pointerup", stopTabDrag);
+        tabScroller.addEventListener("pointercancel", stopTabDrag);
+        tabScroller.addEventListener(
+          "click",
+          function (event) {
+            if (!suppressTabClickTarget) return;
+            var clickedTab = event.target.closest(".tasks-tab");
+            var shouldSuppress =
+              clickedTab === suppressTabClickTarget && event.detail > 0;
+            suppressTabClickTarget = null;
+            if (!shouldSuppress) return;
+            event.preventDefault();
+            event.stopImmediatePropagation();
+          },
+          true,
+        );
+
+        departmentsElement.addEventListener("click", function (event) {
+          var summary = event.target.closest(".tasks-department-summary");
+          if (summary) {
+            var departmentElement = summary.closest(".tasks-department");
+            var expanded = departmentElement.classList.toggle("is-open");
+            var panel = document.getElementById(
+              summary.getAttribute("aria-controls"),
+            );
+            summary.setAttribute("aria-expanded", expanded ? "true" : "false");
+            panel.setAttribute("aria-hidden", expanded ? "false" : "true");
+            panel.inert = !expanded;
+            return;
+          }
+
+          var button = event.target.closest(".tasks-card");
+          if (!button) return;
+          var category = categories[Number(button.dataset.category)];
+          var department = category.departments[Number(button.dataset.department)];
+          var item = department.roles[Number(button.dataset.role)];
+          var popup = popupRecords[item.popupId.replace(/^\./, "")];
+          if (!popup) {
+            console.error(
+              "직무 상세 데이터를 찾을 수 없습니다:",
+              item.popupId,
+            );
+            return;
+          }
+
+          modalTitle.textContent = popup.title;
+          modalCategory.textContent = popup.category;
+          modalDepartment.textContent = popup.location;
+          modalRecruitType.textContent = popup.recruitType;
+          var popupDataUrl = new URL("./data/pop_data.json", document.baseURI);
+          modalBanner.style.backgroundImage =
+            'url("' + new URL(popup.image, popupDataUrl).href + '")';
+          modalSections.replaceChildren();
+          popup.sections.forEach(function (sectionData) {
+            var section = document.createElement("section");
+            section.className = "tasks-modal-section";
+            var heading = document.createElement("h3");
+            heading.textContent = sectionData.sectionTitle;
+            var list = document.createElement("ul");
+            sectionData.content.forEach(function (content) {
+              var listItem = document.createElement("li");
+              listItem.textContent = content;
+              list.append(listItem);
+            });
+            section.append(heading, list);
+            modalSections.append(section);
+          });
+          modal.dataset.popupId = item.popupId;
+          modal.scrollTop = 0;
+          modalBody.scrollTop = 0;
+          modal.showModal();
+          requestAnimationFrame(function () {
+            modal.scrollTop = 0;
+            modalBody.scrollTop = 0;
+          });
+        });
+
+        modal.querySelector(".tasks-modal-close").addEventListener("click", function () {
+          modal.close();
+        });
+        modal.addEventListener("close", function () {
+          modal.scrollTop = 0;
+          modalBody.scrollTop = 0;
+        });
+        modal.addEventListener("keydown", function (event) {
+          if (event.key === "Escape") {
+            event.preventDefault();
+            modal.close();
+          }
+        });
+        modal.addEventListener("click", function (event) {
+          if (event.target === modal) modal.close();
+        });
+
+        function fetchJson(path) {
+          return fetch(path).then(function (response) {
+            if (!response.ok) {
+              throw new Error(
+                path + " 요청 실패: HTTP " + response.status,
+              );
+            }
+            return response.json();
+          });
+        }
+
+        Promise.all([
+          fetchJson("./data/task_data.json"),
+          fetchJson("./data/popup_data.json"),
+          fetchJson("./data/pop_data.json"),
+        ])
+          .then(function (data) {
+            var taskData = data[0];
+            var popupData = data[1];
+            var popupImageData = data[2];
+            if (!Array.isArray(taskData) || taskData.length !== tabs.length) {
+              throw new Error("직무 데이터의 카테고리 구성이 올바르지 않습니다.");
+            }
+            if (!Array.isArray(popupData)) {
+              throw new Error("직무 상세 데이터 형식이 올바르지 않습니다.");
+            }
+            if (!Array.isArray(popupImageData)) {
+              throw new Error("직무 이미지 데이터 형식이 올바르지 않습니다.");
+            }
+
+            var popupImages = Object.create(null);
+            popupImageData.forEach(function (popupImage) {
+              if (
+                !popupImage.id ||
+                !popupImage.image ||
+                !/^\.\.\/images\/[\w.-]+$/.test(popupImage.image)
+              ) {
+                throw new Error("직무 이미지 데이터 항목이 올바르지 않습니다.");
+              }
+              if (popupImages[popupImage.id]) {
+                throw new Error(
+                  "중복된 직무 이미지 데이터입니다: " + popupImage.id,
+                );
+              }
+              popupImages[popupImage.id] = popupImage.image;
+            });
+
+            var loadedPopupRecords = Object.create(null);
+            popupData.forEach(function (popup) {
+              if (
+                !popup.popupId ||
+                !popup.title ||
+                !popup.category ||
+                !popup.location ||
+                !popup.recruitType ||
+                !Array.isArray(popup.sections) ||
+                popup.sections.some(function (section) {
+                  return (
+                    !section.sectionTitle ||
+                    !Array.isArray(section.content)
+                  );
+                })
+              ) {
+                throw new Error("직무 상세 데이터 항목이 올바르지 않습니다.");
+              }
+              if (loadedPopupRecords[popup.popupId]) {
+                throw new Error(
+                  "중복된 직무 상세 데이터입니다: " + popup.popupId,
+                );
+              }
+              if (!popupImages[popup.popupId]) {
+                throw new Error(
+                  "연결된 직무 이미지를 찾을 수 없습니다: " + popup.popupId,
+                );
+              }
+              popup.image = popupImages[popup.popupId];
+              loadedPopupRecords[popup.popupId] = popup;
+            });
+            if (Object.keys(popupImages).length !== popupData.length) {
+              throw new Error(
+                "메뉴와 직무 이미지 데이터의 항목 수가 일치하지 않습니다.",
+              );
+            }
+
+            var loadedCategories = taskData.map(function (category, index) {
+              if (
+                category.category !== tabs[index].dataset.category ||
+                !Array.isArray(category.groups)
+              ) {
+                throw new Error(
+                  "직무 데이터와 메뉴가 일치하지 않습니다: " +
+                    category.category,
+                );
+              }
+
+              return {
+                key: category.category,
+                name: tabs[index].textContent.trim(),
+                departments: category.groups.map(function (group) {
+                  if (!group.groupName || !Array.isArray(group.jobs)) {
+                    throw new Error(
+                      "직무 그룹 데이터가 올바르지 않습니다: " +
+                        category.category,
+                    );
+                  }
+                  return {
+                    name: group.groupName,
+                    roles: group.jobs.map(function (job) {
+                      if (!job.jobName || !job.popupId) {
+                        throw new Error(
+                          "직무 이름 또는 팝업 참조가 누락되었습니다: " +
+                            category.category,
+                        );
+                      }
+                      var popupId = job.popupId.replace(/^\./, "");
+                      var popup = loadedPopupRecords[popupId];
+                      if (!popup) {
+                        throw new Error(
+                          "연결된 직무 상세 데이터를 찾을 수 없습니다: " +
+                            job.popupId,
+                        );
+                      }
+                      if (popup.title !== job.jobName) {
+                        throw new Error(
+                          "메뉴와 상세 데이터의 직무명이 일치하지 않습니다: " +
+                            job.jobName,
+                        );
+                      }
+                      return {
+                        name: job.jobName,
+                        popupId: job.popupId,
+                      };
+                    }),
+                  };
+                }),
+              };
+            });
+
+            var referencedPopupCount = loadedCategories.reduce(
+              function (count, category) {
+                return (
+                  count +
+                  category.departments.reduce(function (groupCount, group) {
+                    return groupCount + group.roles.length;
+                  }, 0)
+                );
+              },
+              0,
+            );
+            if (referencedPopupCount !== popupData.length) {
+              throw new Error(
+                "메뉴와 직무 상세 데이터의 항목 수가 일치하지 않습니다.",
+              );
+            }
+
+            popupRecords = loadedPopupRecords;
+            categories = loadedCategories;
+            dataReady = true;
+            tabs.forEach(function (tab) {
+              tab.disabled = false;
+            });
+            departmentsElement.setAttribute("aria-busy", "false");
+            renderCategory(0);
+          })
+          .catch(function (error) {
+            console.error("직무 데이터를 불러오지 못했습니다.", error);
+            departmentsElement.setAttribute("aria-busy", "false");
+            departmentsElement.textContent =
+              "직무 정보를 불러오지 못했습니다. 잠시 후 다시 시도해 주세요.";
+          });
       })();
 
       // 히스토리 섹션: 펼치기/접기 (초기 상태 = 전체 높이의 2/3만 노출 + 하단 페이드아웃)

@@ -1,0 +1,127 @@
+[
+  {
+    "category": "rnd",
+    "groups": [
+      {
+        "groupName": "연구센터 (경기도 동탄)",
+        "jobs": [
+          { "jobName": "NCE (New Chemical Entity)", "popupId": ".popup-job-rnd-1" },
+          { "jobName": "QS&F (Quality Science & Formulation)", "popupId": ".popup-job-rnd-2" },
+          { "jobName": "MST (Manufacturing Science Technology)", "popupId": ".popup-job-rnd-3" },
+          { "jobName": "TE (Toxicology Evaluation)", "popupId": ".popup-job-rnd-4" },
+          { "jobName": "DST (Drug Science & Technology)", "popupId": ".popup-job-rnd-5" },
+          { "jobName": "BSS (Biological & Structural Evaluation Science)", "popupId": ".popup-job-rnd-6" }
+        ]
+      },
+      {
+        "groupName": "제제연구소 [의약혁신센터] (경기도 광교)",
+        "jobs": [
+          { "jobName": "신제형연구 (전문연구요원)", "popupId": ".popup-job-rnd-7" }
+        ]
+      }
+    ]
+  },
+  {
+    "category": "prod",
+    "groups": [
+      {
+        "groupName": "팔탄제조센터 (경기도 화성)",
+        "jobs": [
+          { "jobName": "제조", "popupId": ".popup-job-prod-1" },
+          { "jobName": "포장", "popupId": ".popup-job-prod-2" },
+          { "jobName": "품질관리", "popupId": ".popup-job-prod-3" },
+          { "jobName": "기술지원", "popupId": ".popup-job-prod-4" }
+        ]
+      },
+      {
+        "groupName": "평택제조센터 (경기도 평택)",
+        "jobs": [
+          { "jobName": "DS생산 (학사)", "popupId": ".popup-job-prod-5" },
+          { "jobName": "DS생산 (전문학사)", "popupId": ".popup-job-prod-6" }
+        ]
+      }
+    ]
+  },
+  {
+    "category": "sales",
+    "groups": [
+      {
+        "groupName": "전국 (Mobile Office)",
+        "jobs": [{ "jobName": "제약영업", "popupId": ".popup-job-sales-1" }]
+      },
+      {
+        "groupName": "본사 (서울시 송파구)",
+        "jobs": [
+          { "jobName": "해외영업", "popupId": ".popup-job-sales-2" },
+          { "jobName": "IT솔루션영업", "popupId": ".popup-job-sales-3" }
+        ]
+      }
+    ]
+  },
+  {
+    "category": "mps",
+    "groups": [
+      {
+        "groupName": "본사 (서울시 송파구)",
+        "jobs": [
+          { "jobName": "구매", "popupId": ".popup-job-mps-1" },
+          { "jobName": "국내법무", "popupId": ".popup-job-mps-2" },
+          { "jobName": "특허", "popupId": ".popup-job-mps-3" },
+          { "jobName": "안전관리", "popupId": ".popup-job-mps-4" },
+          { "jobName": "인사총무", "popupId": ".popup-job-mps-5" }
+        ]
+      }
+    ]
+  },
+  {
+    "category": "cl",
+    "groups": [
+      {
+        "groupName": "본사 (서울시 송파구)",
+        "jobs": [
+          { "jobName": "Pipeline Valuation (신약가치평가)", "popupId": ".popup-job-cl-1" },
+          { "jobName": "Market Intelligence (신약개발 전략분석)", "popupId": ".popup-job-cl-2" },
+          { "jobName": "Data Management", "popupId": ".popup-job-cl-3" },
+          { "jobName": "Biostatistician", "popupId": ".popup-job-cl-4" }
+        ]
+      }
+    ]
+  },
+  {
+    "category": "global",
+    "groups": [
+      {
+        "groupName": "본사 (서울시 송파구)",
+        "jobs": [
+          { "jobName": "Global Regulatory Affairs", "popupId": ".popup-job-global-1" },
+          { "jobName": "Licensing", "popupId": ".popup-job-global-2" }
+        ]
+      }
+    ]
+  },
+  {
+    "category": "healthcare",
+    "groups": [
+      {
+        "groupName": "본사 (서울시 송파구)",
+        "jobs": [
+          { "jobName": "식품영업", "popupId": ".popup-job-healthcare-1" },
+          { "jobName": "식품커머스운영", "popupId": ".popup-job-healthcare-2" },
+          { "jobName": "화장품 커머스사업기획", "popupId": ".popup-job-healthcare-3" },
+          { "jobName": "화장품 상품기획", "popupId": ".popup-job-healthcare-4" },
+          { "jobName": "화장품 홈쇼핑영업/운영", "popupId": ".popup-job-healthcare-5" },
+          { "jobName": "화장품 국내영업", "popupId": ".popup-job-healthcare-6" },
+          { "jobName": "화장품 해외영업", "popupId": ".popup-job-healthcare-7" },
+          { "jobName": "화장품 글로벌마케팅", "popupId": ".popup-job-healthcare-8" },
+          { "jobName": "해외이커머스운영", "popupId": ".popup-job-healthcare-9" }
+        ]
+      },
+      {
+        "groupName": "서울/수도권/영남",
+        "jobs": [
+          { "jobName": "의료기기영업", "popupId": ".popup-job-healthcare-10" }
+        ]
+      }
+    ]
+  }
+]
