@@ -439,21 +439,22 @@
 
       /* ---------- Footer ---------- */
       .site-footer {
-        background: var(--black);
-        color: var(--white-50);
+        display: flex;
+        height: calc(38px * var(--scale));
+        align-items: center;
+        justify-content: center;
+        background: var(--white);
       }
       .footer-inner {
-        width: 100%;
-        max-width: var(--container-width);
-        margin: 0 auto;
-        padding: 40px 60px;
-        font-weight: 500;
-        font-size: 14px;
-        line-height: 22px;
-        letter-spacing: -0.3px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
       }
-      .footer-inner p {
-        margin: 0;
+      .footer-logo,
+      .footer-inner img {
+        display: block;
+        width: calc(182px * var(--scale));
+        height: auto;
       }
 
       /* =====================================================
@@ -2825,6 +2826,1532 @@
 
       }
 
+      /* ---------- Requirement (지원자격 및 전형절차) ---------- */
+      .requirement {
+        --req-u: calc(1px * var(--scale));
+        --req-accent: #ff5d32;
+        padding: calc(96 * var(--req-u)) 0 calc(104 * var(--req-u));
+        background: #ffffff;
+      }
+
+      .requirement-inner {
+        position: relative;
+        max-width: 1440px;
+        margin: 0 auto;
+        padding: 0 calc(60 * var(--req-u));
+      }
+
+      .requirement-heading {
+        margin: 0;
+        font-size: calc(40 * var(--req-u));
+        font-weight: 800;
+        line-height: 1.4;
+        letter-spacing: -0.04em;
+        text-align: center;
+      }
+
+      .requirement-bulb {
+        position: absolute;
+        top: calc(8 * var(--req-u));
+        right: calc(100 * var(--req-u));
+        width: calc(94 * var(--req-u));
+        height: calc(94 * var(--req-u));
+        object-fit: contain;
+      }
+
+      .requirement-tabs {
+        display: grid;
+        max-width: calc(1125 * var(--req-u));
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: calc(24 * var(--req-u));
+        margin: calc(76 * var(--req-u)) auto 0;
+        padding: 0 0 calc(24 * var(--req-u));
+        border-bottom: 1px solid #e4e4e4;
+      }
+
+      .requirement-tab {
+        min-height: calc(72 * var(--req-u));
+        border-radius: calc(18 * var(--req-u));
+        background: transparent;
+        color: #888888;
+        cursor: pointer;
+        font-size: calc(18 * var(--req-u));
+        font-weight: 600;
+        transition:
+          background-color var(--transition),
+          box-shadow var(--transition),
+          color var(--transition);
+      }
+
+      .requirement-tab[aria-selected="true"] {
+        background: #fffaf8;
+        box-shadow:
+          0 5px 16px rgba(89, 49, 37, 0.12),
+          inset 0 0 0 1px #ffe5dc;
+        color: var(--req-accent);
+      }
+
+      .requirement-tab:focus-visible {
+        outline: 2px solid var(--req-accent);
+        outline-offset: 3px;
+      }
+
+      .requirement-panel {
+        max-width: calc(1125 * var(--req-u));
+        margin: 0 auto;
+      }
+
+      .requirement-panel[hidden] {
+        display: none;
+      }
+
+      .requirement-eligibility {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        padding: calc(48 * var(--req-u)) 0;
+        border-bottom: 1px solid #e4e4e4;
+      }
+
+      .requirement-eligibility-item {
+        display: flex;
+        min-height: calc(156 * var(--req-u));
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: calc(12 * var(--req-u));
+        padding: 0 calc(24 * var(--req-u));
+        text-align: center;
+      }
+
+      .requirement-eligibility-item + .requirement-eligibility-item {
+        border-left: 1px solid #e4e4e4;
+      }
+
+      .requirement-eligibility-icon {
+        width: calc(72 * var(--req-u));
+        height: calc(72 * var(--req-u));
+        object-fit: contain;
+      }
+
+      .requirement-eligibility-item h3 {
+        margin: 0;
+        font-size: calc(20 * var(--req-u));
+        font-weight: 700;
+        line-height: 1.5;
+      }
+
+      .requirement-notes {
+        display: grid;
+        gap: calc(12 * var(--req-u));
+        margin: 0;
+        padding: calc(32 * var(--req-u)) 0 calc(32 * var(--req-u))
+          calc(24 * var(--req-u));
+        border-bottom: 1px solid #e4e4e4;
+        list-style: none;
+      }
+
+      .requirement-notes li {
+        position: relative;
+        width: min(100%, calc(480 * var(--req-u)));
+        margin: 0 auto;
+        padding-left: calc(14 * var(--req-u));
+        font-size: calc(14 * var(--req-u));
+        line-height: 1.7;
+      }
+
+      .requirement-notes li::before {
+        position: absolute;
+        top: 0.72em;
+        left: 0;
+        width: calc(5 * var(--req-u));
+        height: calc(5 * var(--req-u));
+        border-radius: 50%;
+        background: var(--req-accent);
+        content: "";
+      }
+
+      .requirement-notice {
+        margin: 0;
+        padding: calc(32 * var(--req-u)) calc(20 * var(--req-u));
+        border-bottom: 1px solid #e4e4e4;
+        font-size: calc(16 * var(--req-u));
+        font-weight: 600;
+        line-height: 1.7;
+        text-align: center;
+      }
+
+      .requirement-notice strong {
+        color: var(--req-accent);
+      }
+
+      .requirement-process-group {
+        padding: calc(48 * var(--req-u)) calc(32 * var(--req-u));
+        border-bottom: 1px solid #e4e4e4;
+      }
+
+      .requirement-process-group h3 {
+        margin: 0 0 calc(38 * var(--req-u));
+        font-size: calc(22 * var(--req-u));
+        font-weight: 700;
+      }
+
+      .requirement-process-notes {
+        display: grid;
+        gap: calc(12 * var(--req-u));
+        margin: 0;
+        padding: calc(32 * var(--req-u))
+          max(0px, calc((100% - 860 * var(--req-u)) / 2))
+          calc(48 * var(--req-u));
+        border-bottom: 1px solid #dddddd;
+        list-style: none;
+        font-size: calc(14 * var(--req-u));
+        line-height: 1.7;
+      }
+
+      .requirement-process-notes li {
+        position: relative;
+        padding-left: calc(14 * var(--req-u));
+      }
+
+      .requirement-process-notes li::before {
+        position: absolute;
+        top: 0.72em;
+        left: 0;
+        width: calc(5 * var(--req-u));
+        height: calc(5 * var(--req-u));
+        border-radius: 50%;
+        background: var(--req-accent);
+        content: "";
+      }
+
+      .requirement-steps {
+        --req-step-half-gap: calc(-5 * var(--req-u));
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: calc(10 * var(--req-u));
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .requirement-step {
+        position: relative;
+        display: flex;
+        min-width: 0;
+        flex: 1 1 0;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+
+      .requirement-step + .requirement-step::before {
+        position: absolute;
+        top: calc(22 * var(--req-u));
+        left: 0;
+        transform: translate(
+          calc(-50% + var(--req-step-half-gap)),
+          -50%
+        );
+        color: #222222;
+        content: "›";
+        font-size: calc(32 * var(--req-u));
+        font-weight: 400;
+        line-height: 1;
+      }
+
+      .requirement-step-icon {
+        display: grid;
+        width: calc(56 * var(--req-u));
+        height: calc(56 * var(--req-u));
+        place-items: center;
+        color: #e7836c;
+        font-size: calc(40 * var(--req-u));
+        line-height: 1;
+      }
+
+      .requirement-step h4 {
+        margin: calc(16 * var(--req-u)) 0 calc(4 * var(--req-u));
+        font-size: calc(16 * var(--req-u));
+        font-weight: 700;
+        line-height: 1.5;
+      }
+
+      .requirement-step p {
+        margin: 0;
+        color: #999999;
+        font-size: calc(14 * var(--req-u));
+        line-height: 1.5;
+        white-space: pre-line;
+      }
+
+      @media (max-width: 1024px) {
+        .requirement {
+          --req-u: 1px;
+          padding: 72px 0 80px;
+        }
+
+        .requirement-inner {
+          padding: 0 32px;
+        }
+
+        .requirement-heading {
+          font-size: 34px;
+        }
+
+        .requirement-bulb {
+          right: 7%;
+          width: 76px;
+          height: 76px;
+        }
+
+        .requirement-tabs {
+          gap: 16px;
+          margin-top: 60px;
+          padding-bottom: 20px;
+        }
+
+        .requirement-tab {
+          min-height: 60px;
+          font-size: 16px;
+        }
+
+        .requirement-eligibility {
+          padding: 36px 0;
+        }
+
+        .requirement-eligibility-item {
+          min-height: 152px;
+        }
+
+        .requirement-process-group {
+          padding: 40px 20px;
+        }
+
+        .requirement-process-notes {
+          font-size: 13px;
+        }
+
+        .requirement-steps {
+          --req-step-half-gap: -4px;
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+          gap: 20px 8px;
+        }
+
+        .requirement-step {
+          flex: none;
+        }
+
+        .requirement-step + .requirement-step::before {
+          top: 50%;
+          left: var(--req-step-half-gap);
+          transform: translate(-50%, -50%);
+          font-size: 20px;
+        }
+      }
+
+      @media (max-width: 568px) {
+        .requirement {
+          padding: 48px 0 64px;
+        }
+
+        .requirement-inner {
+          padding: 0 16px;
+        }
+
+        .requirement-heading {
+          font-size: 23px;
+          line-height: 1.5;
+        }
+
+        .requirement-bulb {
+          display: none;
+        }
+
+        .requirement-tabs {
+          gap: 8px;
+          margin-top: 40px;
+          padding-bottom: 16px;
+        }
+
+        .requirement-tab {
+          min-height: 58px;
+          padding: 8px 4px;
+          border-radius: 16px;
+          font-size: 13px;
+        }
+
+        .requirement-eligibility {
+          grid-template-columns: minmax(0, 1fr);
+          padding: 0;
+        }
+
+        .requirement-eligibility-item {
+          min-height: 164px;
+          gap: 10px;
+          padding: 20px 8px;
+        }
+
+        .requirement-eligibility-item + .requirement-eligibility-item {
+          border-top: 1px solid #e4e4e4;
+          border-left: 0;
+        }
+
+        .requirement-eligibility-icon {
+          width: 58px;
+          height: 58px;
+        }
+
+        .requirement-eligibility-item h3 {
+          font-size: 16px;
+        }
+
+        .requirement-notes {
+          gap: 10px;
+          padding: 26px 8px;
+        }
+
+        .requirement-notes li {
+          padding-left: 14px;
+          font-size: 12px;
+        }
+
+        .requirement-notice {
+          padding: 28px 14px;
+          font-size: 13px;
+        }
+
+        .requirement-process-group {
+          padding: 32px 4px;
+        }
+
+        .requirement-process-notes {
+          font-size: 11px;
+        }
+
+        .requirement-process-group h3 {
+          margin-bottom: 24px;
+          font-size: 18px;
+        }
+
+        .requirement-steps {
+          --req-step-half-gap: -4px;
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+          align-items: start;
+          gap: 20px 8px;
+          overflow: visible;
+          padding: 0;
+        }
+
+        .requirement-step {
+          min-width: 0;
+        }
+
+        .requirement-step + .requirement-step::before {
+          top: 50%;
+          left: var(--req-step-half-gap);
+          transform: translate(-50%, -50%);
+          font-size: clamp(14px, 4vw, 20px);
+        }
+
+        .requirement-step-icon {
+          width: clamp(28px, 8vw, 40px);
+          height: clamp(28px, 8vw, 40px);
+          font-size: clamp(24px, 7vw, 34px);
+        }
+
+        .requirement-step h4 {
+          width: 100%;
+          margin: 8px 0 3px;
+          font-size: clamp(10px, 3vw, 13px);
+          line-height: 1.35;
+          overflow-wrap: anywhere;
+          word-break: keep-all;
+        }
+
+        .requirement-step p {
+          width: 100%;
+          font-size: clamp(9px, 2.7vw, 11px);
+          line-height: 1.35;
+          overflow-wrap: anywhere;
+          word-break: keep-all;
+        }
+      }
+
+      /* ---------- Exposition (박람회 및 캠퍼스 방문 일정) ---------- */
+      .exposition {
+        --expo-accent: #ff765e;
+        --expo-line: #e8e8e8;
+        --expo-u: calc(1px * var(--scale));
+        padding: calc(72 * var(--expo-u)) 0 calc(90 * var(--expo-u));
+        background: #ffffff;
+      }
+
+      .exposition-inner {
+        max-width: 1440px;
+        margin: 0 auto;
+        padding: 0 calc(60 * var(--expo-u));
+      }
+
+      .exposition-intro {
+        display: grid;
+        min-height: calc(270 * var(--expo-u));
+        grid-template-columns: calc(300 * var(--expo-u)) minmax(0, 1fr);
+        align-items: center;
+        gap: calc(32 * var(--expo-u));
+      }
+
+      .exposition-character {
+        display: block;
+        width: 100%;
+        max-width: calc(280 * var(--expo-u));
+        margin: 0 auto;
+        object-fit: contain;
+      }
+
+      .exposition-heading {
+        margin: 0 0 calc(20 * var(--expo-u));
+        font-size: calc(42 * var(--expo-u));
+        font-weight: 800;
+        line-height: 1.3;
+        letter-spacing: -0.04em;
+      }
+
+      .exposition-description {
+        margin: 0;
+        font-size: calc(18 * var(--expo-u));
+        line-height: 1.7;
+      }
+
+      .exposition-guide {
+        position: relative;
+        margin: calc(18 * var(--expo-u)) 0 0;
+        padding-left: calc(16 * var(--expo-u));
+        font-size: calc(13 * var(--expo-u));
+        line-height: 1.6;
+      }
+
+      .exposition-guide::before {
+        position: absolute;
+        top: 0.65em;
+        left: 0;
+        width: calc(5 * var(--expo-u));
+        height: calc(5 * var(--expo-u));
+        border-radius: 50%;
+        background: var(--expo-accent);
+        content: "";
+      }
+
+      .exposition-tabs,
+      .exposition-regions {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: calc(20 * var(--expo-u));
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .exposition-tabs {
+        margin-bottom: calc(28 * var(--expo-u));
+      }
+
+      .exposition-tab,
+      .exposition-region {
+        min-height: calc(68 * var(--expo-u));
+        border-radius: calc(16 * var(--expo-u));
+        background: transparent;
+        color: #888888;
+        cursor: pointer;
+        font-size: calc(18 * var(--expo-u));
+        font-weight: 600;
+        transition:
+          background-color var(--transition),
+          box-shadow var(--transition),
+          color var(--transition);
+      }
+
+      .exposition-tab[aria-selected="true"],
+      .exposition-region[aria-pressed="true"] {
+        background: #fffaf8;
+        box-shadow:
+          0 5px 16px rgba(89, 49, 37, 0.12),
+          inset 0 0 0 1px #ffe5dc;
+        color: var(--expo-accent);
+      }
+
+      .exposition-tab:focus-visible,
+      .exposition-region:focus-visible,
+      .exposition-event-button:focus-visible {
+        outline: 2px solid var(--expo-accent);
+        outline-offset: 3px;
+      }
+
+      .exposition-panel[hidden] {
+        display: none;
+      }
+
+      .exposition-region-panel {
+        padding: 0 calc(20 * var(--expo-u));
+      }
+
+      .exposition-regions {
+        grid-template-columns: repeat(6, minmax(0, 1fr));
+        gap: calc(8 * var(--expo-u));
+        margin-bottom: calc(24 * var(--expo-u));
+        padding: calc(8 * var(--expo-u));
+        border-radius: calc(14 * var(--expo-u));
+        background: #fffaf8;
+      }
+
+      .exposition-region {
+        min-height: calc(54 * var(--expo-u));
+        border-radius: calc(12 * var(--expo-u));
+        font-size: calc(16 * var(--expo-u));
+      }
+
+      .exposition-calendar {
+        display: grid;
+        grid-template-columns: repeat(5, minmax(0, 1fr));
+      }
+
+      .exposition-week {
+        display: grid;
+        grid-column: 1 / -1;
+        grid-template-columns: repeat(5, minmax(0, 1fr));
+        border-top: 1px solid var(--expo-line);
+        border-bottom: 1px solid var(--expo-line);
+      }
+
+      .exposition-day {
+        display: flex;
+        min-width: 0;
+        min-height: calc(220 * var(--expo-u));
+        flex-direction: column;
+        padding: 0 calc(8 * var(--expo-u)) calc(20 * var(--expo-u));
+        text-align: center;
+      }
+
+      .exposition-day + .exposition-day {
+        border-left: 1px solid #eeeeee;
+      }
+
+      .exposition-date {
+        display: flex;
+        min-height: calc(48 * var(--expo-u));
+        align-items: center;
+        justify-content: center;
+        margin: 0 calc(-8 * var(--expo-u));
+        padding: calc(8 * var(--expo-u)) calc(4 * var(--expo-u));
+        border-bottom: 1px solid var(--expo-line);
+        font-size: calc(16 * var(--expo-u));
+        font-weight: 700;
+        line-height: 1.4;
+      }
+
+      .exposition-events {
+        position: relative;
+        display: flex;
+        flex: 1;
+        min-height: calc(180 * var(--expo-u));
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: calc(12 * var(--expo-u));
+        padding-top: calc(16 * var(--expo-u));
+      }
+
+      .exposition-event {
+        display: grid;
+        justify-items: center;
+        gap: calc(8 * var(--expo-u));
+      }
+
+      .exposition-event-button,
+      .exposition-event-name {
+        padding: calc(4 * var(--expo-u)) calc(6 * var(--expo-u));
+        background: transparent;
+        color: var(--expo-accent);
+        font-size: calc(16 * var(--expo-u));
+        font-weight: 600;
+        line-height: 1.5;
+        text-align: center;
+      }
+
+      .exposition-event-button {
+        cursor: pointer;
+      }
+
+      .exposition-event.has-divider .exposition-event-button::after,
+      .exposition-event.has-divider .exposition-event-name::after {
+        display: block;
+        width: calc(56 * var(--expo-u));
+        height: 1px;
+        margin: calc(8 * var(--expo-u)) auto 0;
+        background: #ffddd5;
+        content: "";
+      }
+
+      .exposition-campus-detail {
+        position: absolute;
+        z-index: 1;
+        inset: calc(8 * var(--expo-u)) 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: calc(8 * var(--expo-u));
+        border-radius: calc(12 * var(--expo-u));
+        background: #fff7f4;
+        opacity: 0;
+        transform: translateY(calc(6 * var(--expo-u)));
+        transition:
+          opacity 280ms cubic-bezier(0.2, 0.8, 0.2, 1),
+          transform 280ms cubic-bezier(0.2, 0.8, 0.2, 1);
+      }
+
+      .exposition-campus-detail-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: calc(16 * var(--expo-u));
+      }
+
+      .exposition-event-button {
+        transition: opacity 220ms ease;
+      }
+
+      .exposition-event.is-expanded .exposition-event-button {
+        opacity: 0;
+        pointer-events: none;
+      }
+
+      .exposition-event.is-closing .exposition-event-button {
+        opacity: 1;
+        pointer-events: none;
+      }
+
+      .exposition-campus-detail.is-visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .exposition-campus-detail-item {
+        display: grid;
+        justify-items: center;
+        gap: calc(4 * var(--expo-u));
+      }
+
+      .exposition-campus-detail-label {
+        color: var(--expo-accent);
+        font-size: calc(14 * var(--expo-u));
+        font-weight: 600;
+      }
+
+      .exposition-campus-detail-value {
+        color: #222222;
+        font-size: calc(18 * var(--expo-u));
+        font-weight: 700;
+        line-height: 1.4;
+        overflow-wrap: anywhere;
+      }
+
+      @media (max-width: 1024px) {
+        .exposition {
+          --expo-u: 1px;
+          padding: 64px 0 72px;
+        }
+
+        .exposition-inner {
+          padding: 0 32px;
+        }
+
+        .exposition-intro {
+          min-height: 220px;
+          grid-template-columns: minmax(0, 1fr);
+          gap: 0;
+          text-align: center;
+        }
+
+        .exposition-character {
+          display: none;
+        }
+
+        .exposition-heading {
+          margin-bottom: 18px;
+          font-size: clamp(30px, 4vw, 38px);
+        }
+
+        .exposition-description {
+          font-size: 16px;
+        }
+
+        .exposition-guide {
+          display: inline-block;
+          margin-top: 14px;
+          font-size: 12px;
+        }
+
+        .exposition-tabs {
+          gap: 16px;
+          margin-bottom: 24px;
+        }
+
+        .exposition-tab {
+          min-height: 60px;
+          font-size: 16px;
+        }
+
+        .exposition-day {
+          min-height: 190px;
+          padding-right: 6px;
+          padding-left: 6px;
+        }
+
+        .exposition-date {
+          font-size: 14px;
+        }
+
+        .exposition-event-button,
+        .exposition-event-name {
+          font-size: 14px;
+        }
+
+        .exposition-region-panel {
+          padding: 0;
+        }
+
+        .exposition-region {
+          font-size: 14px;
+        }
+      }
+
+      @media (max-width: 568px) {
+        .exposition {
+          padding: 36px 0 48px;
+        }
+
+        .exposition-inner {
+          padding: 0 16px;
+        }
+
+        .exposition-intro {
+          min-height: auto;
+          margin-bottom: 34px;
+        }
+
+        .exposition-heading {
+          margin-bottom: 10px;
+          font-size: 18px;
+          line-height: 1.4;
+        }
+
+        .exposition-description {
+          font-size: 10px;
+          line-height: 1.65;
+        }
+
+        .exposition-guide {
+          max-width: 300px;
+          margin-top: 10px;
+          padding-left: 10px;
+          font-size: 8px;
+          line-height: 1.5;
+          text-align: left;
+        }
+
+        .exposition-guide::before {
+          width: 4px;
+          height: 4px;
+        }
+
+        .exposition-tabs {
+          gap: 8px;
+          margin-bottom: 14px;
+        }
+
+        .exposition-tab {
+          min-height: 38px;
+          border-radius: 12px;
+          font-size: 10px;
+        }
+
+        .exposition-regions {
+          gap: 4px;
+          margin-bottom: 12px;
+          padding: 4px;
+          border-radius: 10px;
+        }
+
+        .exposition-region {
+          min-height: 34px;
+          border-radius: 8px;
+          font-size: 9px;
+        }
+
+        .exposition-calendar {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+          border-top: 1px solid var(--expo-line);
+        }
+
+        .exposition-week {
+          display: contents;
+        }
+
+        .exposition-day {
+          min-height: 138px;
+          padding: 0 5px 14px;
+          border-bottom: 1px solid var(--expo-line);
+        }
+
+        .exposition-day + .exposition-day {
+          border-left: 0;
+        }
+
+        .exposition-week:nth-child(odd) .exposition-day:nth-child(even),
+        .exposition-week:nth-child(even) .exposition-day:nth-child(odd) {
+          border-left: 1px solid #eeeeee;
+        }
+
+        .exposition-date {
+          min-height: 32px;
+          margin: 0 -5px;
+          padding: 5px 2px;
+          font-size: 9px;
+        }
+
+        .exposition-events {
+          min-height: 120px;
+          gap: 8px;
+          padding-top: 10px;
+        }
+
+        .exposition-event {
+          gap: 4px;
+        }
+
+        .exposition-event-button,
+        .exposition-event-name {
+          padding: 3px 2px;
+          font-size: 9px;
+          line-height: 1.45;
+          overflow-wrap: anywhere;
+        }
+
+        .exposition-event.has-divider .exposition-event-button::after,
+        .exposition-event.has-divider .exposition-event-name::after {
+          width: 34px;
+          margin-top: 5px;
+        }
+
+        .exposition-campus-detail {
+          gap: 10px;
+          padding: 2px 4px;
+          border-radius: 9px;
+        }
+
+        .exposition-campus-detail-item {
+          gap: 2px;
+        }
+
+        .exposition-campus-detail-label {
+          font-size: 9px;
+        }
+
+        .exposition-campus-detail-value {
+          font-size: 11px;
+        }
+      }
+
+      /* ---------- Con8 (지원 링크 바로가기) ---------- */
+      .con8 {
+        --con-u: calc(1px * var(--scale));
+        position: relative;
+        height: calc(980 * var(--con-u));
+        overflow: hidden;
+        background: #ffffff;
+      }
+
+      .con8-inner {
+        position: relative;
+        width: 100%;
+        max-width: 1440px;
+        height: 100%;
+        margin: 0 auto;
+      }
+
+      .con8-cards {
+        position: absolute;
+        inset: 0;
+      }
+
+      .con8-card {
+        position: absolute;
+        display: block;
+        width: calc(402 * var(--con-u));
+        color: #111111;
+        text-align: center;
+      }
+
+      .con8-card:nth-child(1) {
+        top: calc(285 * var(--con-u));
+        left: calc(60 * var(--con-u));
+      }
+
+      .con8-card:nth-child(2) {
+        top: calc(225 * var(--con-u));
+        left: calc(523 * var(--con-u));
+      }
+
+      .con8-card:nth-child(3) {
+        top: calc(345 * var(--con-u));
+        left: calc(986 * var(--con-u));
+      }
+
+      .con8-card-image {
+        display: block;
+        width: 100%;
+        aspect-ratio: 774 / 1000;
+        border-radius: calc(10 * var(--con-u));
+        object-fit: cover;
+      }
+
+      .con8-card-media {
+        position: relative;
+        display: block;
+      }
+
+      .con8-mark {
+        position: absolute;
+        z-index: 1;
+        display: block;
+        height: auto;
+        pointer-events: none;
+      }
+
+      .con8-mark--first-arrow {
+        bottom: -7%;
+        left: 4%;
+        width: 12%;
+      }
+
+      .con8-mark--first-star {
+        right: -3%;
+        bottom: -6%;
+        width: 15%;
+      }
+
+      .con8-mark--second-arrow {
+        right: 2%;
+        bottom: -6%;
+        width: 12%;
+      }
+
+      .con8-card-copy {
+        display: grid;
+        justify-items: center;
+        gap: calc(8 * var(--con-u));
+        padding: calc(18 * var(--con-u)) calc(8 * var(--con-u)) 0;
+      }
+
+      .con8-question {
+        font-size: calc(17 * var(--con-u));
+        font-weight: 600;
+        line-height: 1.5;
+      }
+
+      .con8-question-target {
+        position: relative;
+        display: inline-block;
+      }
+
+      .con8-mark--underline,
+      .con8-mark--wave {
+        bottom: -0.5em;
+        left: 0;
+        width: 100%;
+      }
+
+      .con8-mark--circle {
+        top: -0.35em;
+        left: -0.06em;
+        width: calc(100% + 0.12em);
+        height: 1.75em;
+      }
+
+      .con8-character {
+        position: absolute;
+        top: calc(58 * var(--con-u));
+        right: calc(52 * var(--con-u));
+        width: calc(150 * var(--con-u));
+      }
+
+      /* ---------- Con9 (지원 마감 카운트다운) ---------- */
+      .con9 {
+        --con-u: calc(1px * var(--scale));
+        position: relative;
+        height: calc(1090 * var(--con-u));
+        overflow: hidden;
+        background: #d7f8f6 url("./images/con9_bg.png") center / cover no-repeat;
+        text-align: center;
+      }
+
+      .con9 [hidden] {
+        display: none;
+      }
+
+      .con9-heading {
+        position: absolute;
+        top: calc(206 * var(--con-u));
+        right: 16px;
+        left: 16px;
+        margin: 0;
+        font-size: calc(64 * var(--con-u));
+        font-weight: 800;
+        line-height: 1.4;
+        letter-spacing: -0.04em;
+      }
+
+      .con9-countdown {
+        position: absolute;
+        top: calc(300 * var(--con-u));
+        right: 12px;
+        left: 12px;
+        display: flex;
+        align-items: baseline;
+        justify-content: center;
+        gap: calc(14 * var(--con-u));
+        font-size: calc(30 * var(--con-u));
+        font-weight: 700;
+        line-height: 1.4;
+        white-space: nowrap;
+      }
+
+      .con9-time-unit {
+        display: inline-flex;
+        align-items: baseline;
+        gap: calc(5 * var(--con-u));
+      }
+
+      .con9-time-value {
+        color: #ff503e;
+        font-size: calc(62 * var(--con-u));
+        font-weight: 800;
+        letter-spacing: -0.04em;
+      }
+
+      .con9-time-label {
+        font-size: calc(28 * var(--con-u));
+      }
+
+      .con9-countdown-ended {
+        color: #ff503e;
+        font-weight: 800;
+      }
+
+      .con9-earth {
+        position: absolute;
+        top: calc(520 * var(--con-u));
+        left: 50%;
+        width: calc(320 * var(--con-u));
+        transform: translateX(-50%);
+      }
+
+      .con9-apply {
+        position: absolute;
+        top: calc(680 * var(--con-u));
+        left: 50%;
+        display: inline-flex;
+        min-width: calc(176 * var(--con-u));
+        min-height: calc(54 * var(--con-u));
+        align-items: center;
+        justify-content: center;
+        gap: calc(10 * var(--con-u));
+        padding: calc(8 * var(--con-u)) calc(14 * var(--con-u));
+        border: 1px solid rgba(255, 255, 255, 0.8);
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.68);
+        box-shadow: 0 5px 16px rgba(67, 151, 177, 0.16);
+        color: #ff765e;
+        font-size: calc(18 * var(--con-u));
+        font-weight: 700;
+        transform: translateX(-50%);
+        transition:
+          background-color var(--transition),
+          transform var(--transition);
+      }
+
+      .con9-apply:hover {
+        background: #ffffff;
+        transform: translate(-50%, -2px);
+      }
+
+      .con9-apply-arrow {
+        display: inline-flex;
+        width: calc(34 * var(--con-u));
+        height: calc(34 * var(--con-u));
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        background: linear-gradient(135deg, #ffae83, #ff765e);
+        color: #ffffff;
+      }
+
+      .con9-note {
+        position: absolute;
+        right: 12px;
+        bottom: calc(118 * var(--con-u));
+        left: 12px;
+        margin: 0;
+        font-size: calc(14 * var(--con-u));
+        font-weight: 500;
+      }
+
+      .con9-cloud {
+        position: absolute;
+        bottom: calc(-4 * var(--con-u));
+        width: calc(460 * var(--con-u));
+        pointer-events: none;
+      }
+
+      .con9-cloud--left {
+        left: 0;
+      }
+
+      .con9-cloud--right {
+        right: 0;
+      }
+
+      .site-footer {
+        height: calc(38px * var(--scale));
+      }
+
+      .footer-logo,
+      .footer-inner img {
+        width: calc(182px * var(--scale));
+      }
+
+      @media (max-width: 1024px) {
+        .con8 {
+          --con-u: 1px;
+          height: 76vw;
+          min-height: 375px;
+          max-height: 780px;
+        }
+
+        .con8-inner {
+          max-width: none;
+        }
+
+        .con8-cards {
+          top: 20vw;
+          right: 4%;
+          bottom: auto;
+          left: 4%;
+          display: grid;
+          grid-template-columns: repeat(3, minmax(0, 1fr));
+          gap: 2%;
+        }
+
+        .con8-card,
+        .con8-card:nth-child(1),
+        .con8-card:nth-child(2),
+        .con8-card:nth-child(3) {
+          position: relative;
+          top: auto;
+          left: auto;
+          width: auto;
+        }
+
+        .con8-card-image {
+          height: auto;
+          aspect-ratio: 774 / 1000;
+          border-radius: 5px;
+        }
+
+        .con8-card-copy {
+          gap: 5px;
+          padding: 7px 2px 0;
+        }
+
+        .con8-question {
+          font-size: clamp(8px, 1.8vw, 11px);
+          line-height: 1.4;
+        }
+
+        .con8-character {
+          display: block;
+          top: 0.8vw;
+          right: 3.6%;
+          width: 14vw;
+        }
+
+        .con9 {
+          --con-u: 1px;
+          height: 425px;
+        }
+
+        .con9-heading {
+          top: 70px;
+          font-size: clamp(22px, 4vw, 30px);
+        }
+
+        .con9-countdown {
+          top: 119px;
+          gap: 7px;
+          font-size: clamp(14px, 2.8vw, 19px);
+        }
+
+        .con9-time-unit {
+          gap: 3px;
+        }
+
+        .con9-time-value {
+          font-size: clamp(24px, 5vw, 32px);
+        }
+
+        .con9-time-label {
+          font-size: clamp(13px, 2.5vw, 17px);
+        }
+
+        .con9-earth {
+          top: 174px;
+          width: 190px;
+        }
+
+        .con9-apply {
+          top: 222px;
+          min-width: 112px;
+          min-height: 38px;
+          gap: 6px;
+          padding: 4px 7px;
+          font-size: 13px;
+        }
+
+        .con9-apply-arrow {
+          width: 25px;
+          height: 25px;
+        }
+
+        .con9-note {
+          bottom: 76px;
+          font-size: 10px;
+        }
+
+        .con9-cloud {
+          bottom: -2px;
+          width: 180px;
+        }
+
+        .site-footer {
+          height: 33px;
+        }
+
+        .footer-logo,
+        .footer-inner img {
+          width: 75px;
+        }
+      }
+
+      @media (min-width: 1025px) and (max-width: 1100px) {
+        .con8 {
+          --con-u: 1px;
+          height: 76vw;
+          min-height: 375px;
+          max-height: 780px;
+        }
+
+        .con8-inner {
+          max-width: none;
+        }
+
+        .con8-cards {
+          top: 20vw;
+          right: 4%;
+          bottom: auto;
+          left: 4%;
+          display: grid;
+          grid-template-columns: repeat(3, minmax(0, 1fr));
+          gap: 2%;
+        }
+
+        .con8-card,
+        .con8-card:nth-child(1),
+        .con8-card:nth-child(2),
+        .con8-card:nth-child(3) {
+          position: relative;
+          top: auto;
+          left: auto;
+          width: auto;
+        }
+
+        .con8-card-image {
+          height: auto;
+          aspect-ratio: 774 / 1000;
+          border-radius: 5px;
+        }
+
+        .con8-card-copy {
+          gap: 5px;
+          padding: 7px 2px 0;
+        }
+
+        .con8-question {
+          font-size: clamp(8px, 1.8vw, 11px);
+          line-height: 1.4;
+        }
+
+        .con8-character {
+          display: block;
+          top: 0.8vw;
+          right: 3.6%;
+          width: 14vw;
+        }
+      }
+
+      @media (max-width: 390px) {
+        .con8 {
+          height: auto;
+          padding: 10px 0 70px;
+        }
+
+        .con8-inner {
+          height: auto;
+          padding: 0 5%;
+        }
+
+        .con8-character {
+          display: none;
+        }
+
+        .con8-mark {
+          display: none;
+        }
+
+        .con8-cards {
+          position: relative;
+          top: auto;
+          right: auto;
+          bottom: auto;
+          left: auto;
+          width: 100%;
+          display: grid;
+          grid-template-columns: 1fr;
+          gap: 11px;
+        }
+
+        .con8-card,
+        .con8-card:nth-child(1),
+        .con8-card:nth-child(2),
+        .con8-card:nth-child(3) {
+          position: relative;
+          top: auto;
+          left: auto;
+          width: 100%;
+          overflow: hidden;
+          border-radius: 8px;
+        }
+
+        .con8-card-image {
+          height: auto;
+          aspect-ratio: 1.55;
+          border-radius: 8px;
+        }
+
+        .con8-card-copy {
+          position: absolute;
+          inset: 0;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          gap: 5px;
+          padding: 10px;
+          background: linear-gradient(
+            180deg,
+            rgba(0, 0, 0, 0.06) 0%,
+            rgba(0, 0, 0, 0.42) 100%
+          );
+          color: #ffffff;
+        }
+
+        .con8-question {
+          font-size: clamp(9px, 4vw, 13px);
+          font-weight: 500;
+        }
+
+        .con9 {
+          height: 339px;
+        }
+
+        .con9-heading {
+          top: 55px;
+          right: 8px;
+          left: 8px;
+          font-size: clamp(14px, 6vw, 20px);
+          line-height: 1.45;
+        }
+
+        .con9-countdown {
+          top: 95px;
+          right: 4px;
+          left: 4px;
+          gap: 4px;
+          font-size: clamp(9px, 3.8vw, 13px);
+        }
+
+        .con9-time-unit {
+          gap: 2px;
+        }
+
+        .con9-time-value {
+          font-size: clamp(16px, 7vw, 24px);
+        }
+
+        .con9-time-label {
+          font-size: clamp(9px, 3.8vw, 13px);
+        }
+
+        .con9-earth {
+          top: 143px;
+          width: 132px;
+        }
+
+        .con9-apply {
+          top: 176px;
+          min-width: 88px;
+          min-height: 29px;
+          gap: 4px;
+          padding: 3px 5px;
+          font-size: 10px;
+        }
+
+        .con9-apply-arrow {
+          width: 20px;
+          height: 20px;
+          font-size: 11px;
+        }
+
+        .con9-note {
+          display: none;
+        }
+
+        .con9-cloud {
+          width: 112px;
+        }
+
+        .site-footer {
+          height: 24px;
+        }
+
+        .footer-logo,
+        .footer-inner img {
+          width: 42px;
+        }
+      }
+
       /* ---------- Welfare (회사 복지) ---------- */
       .welfare {
         --u: calc(1px * var(--scale));
@@ -2942,6 +4469,10 @@
         margin: 0;
         padding: 0;
         list-style: none;
+      }
+
+      .welfare-list + .welfare-subhead {
+        padding-top: calc(28 * var(--u));
       }
 
       .welfare-item {
@@ -3101,7 +4632,7 @@
         }
 
         .welfare-list + .welfare-subhead {
-          margin-top: 18px;
+          padding-top: 18px;
         }
 
         .welfare-subtitle {
@@ -3177,8 +4708,8 @@
           </div>
           <ul class="gnb-list">
             <li><a href="#jobs">직무소개</a></li>
-            <li><a href="#qualification">지원자격 및 접수방법</a></li>
-            <li><a href="#schedule">채용설명회 일정</a></li>
+            <li><a href="#requirement">지원자격 및 접수방법</a></li>
+            <li><a href="#exposition">박람회/캠퍼스 일정</a></li>
           </ul>
           <div class="gnb-cta">
             <a class="btn btn-apply" href="#apply">
@@ -3881,328 +5412,7 @@
             tabindex="0"
             aria-label="회사 복지 목록"
           >
-            <div class="welfare-subhead">
-              <h3 class="welfare-subtitle">
-                <span aria-hidden="true">💗</span> 오늘의 나도, 내일의 나도
-                든든하게!
-              </h3>
-              <p class="welfare-subdesc">
-                건강, 성장, 문화생활까지 알차게 챙겨드려요.
-              </p>
-            </div>
-            <ul class="welfare-list">
-            <li class="welfare-item">
-              <article class="welfare-card">
-                <div class="welfare-card-copy">
-                  <h4 class="welfare-card-title">건강 검진</h4>
-                  <p class="welfare-card-desc">
-                    건강한 하루가 오래 이어지도록, 정기적인 건강관리를 지원해요.
-                  </p>
-                </div>
-                <img
-                  class="welfare-card-icon"
-                  src="./images/wf_ico1.png"
-                  alt="하트가 있는 달력 아이콘"
-                />
-              </article>
-            </li>
-            <li class="welfare-item">
-              <article class="welfare-card">
-                <div class="welfare-card-copy">
-                  <h4 class="welfare-card-title">기념일 축하 지원</h4>
-                  <p class="welfare-card-desc">
-                    소중한 기념일이 더 특별해지도록 한미가 함께 축하해요.
-                  </p>
-                </div>
-                <img
-                  class="welfare-card-icon"
-                  src="./images/wf_ico2.png"
-                  alt="초가 꽂힌 축하 케이크 아이콘"
-                />
-              </article>
-            </li>
-            <li class="welfare-item">
-              <article class="welfare-card">
-                <div class="welfare-card-copy">
-                  <h4 class="welfare-card-title">본인주도 선택복지</h4>
-                  <p class="welfare-card-desc">
-                    나에게 필요한 복지를 내 취향과 생활에 맞게 선택할 수 있어요.
-                  </p>
-                </div>
-                <img
-                  class="welfare-card-icon"
-                  src="./images/wf_ico3.png"
-                  alt="선택 복지 안내 책자 아이콘"
-                />
-              </article>
-            </li>
-            <li class="welfare-item">
-              <article class="welfare-card">
-                <div class="welfare-card-copy">
-                  <h4 class="welfare-card-title">장기 근속 포상</h4>
-                  <p class="welfare-card-desc">
-                    한미와 함께 걸어온 소중한 시간에 감사의 마음을 전해요.
-                  </p>
-                </div>
-                <img
-                  class="welfare-card-icon"
-                  src="./images/wf_ico4.png"
-                  alt="과녁에 꽂힌 화살 아이콘"
-                />
-              </article>
-            </li>
-            <li class="welfare-item">
-              <article class="welfare-card">
-                <div class="welfare-card-copy">
-                  <h4 class="welfare-card-title">유연근무제</h4>
-                  <p class="welfare-card-desc">
-                    업무와 일상의 균형을 찾을 수 있도록 유연한 근무를 지원해요.
-                  </p>
-                </div>
-                <img
-                  class="welfare-card-icon"
-                  src="./images/wf_ico5.png"
-                  alt="유연한 근무 시간을 표현한 탁상시계 아이콘"
-                />
-              </article>
-            </li>
-            </ul>
-            <div class="welfare-subhead">
-              <h3 class="welfare-subtitle">
-                <span aria-hidden="true">🏠</span> 가족의 행복도 빼놓을 수
-                없죠!
-              </h3>
-              <p class="welfare-subdesc">
-                축하할 때도, 도움이 필요할 때도 한미가 함께해요.
-              </p>
-            </div>
-            <ul class="welfare-list">
-            <li class="welfare-item">
-              <article class="welfare-card">
-                <div class="welfare-card-copy">
-                  <h4 class="welfare-card-title">단체 상해 보험</h4>
-                  <p class="welfare-card-desc">
-                    예상하지 못한 순간에도 든든할 수 있도록 임직원을 보호해요.
-                  </p>
-                </div>
-                <img
-                  class="welfare-card-icon"
-                  src="./images/wf_ico6.png"
-                  alt="보호를 의미하는 확인 표시 아이콘"
-                />
-              </article>
-            </li>
-            <li class="welfare-item">
-              <article class="welfare-card">
-                <div class="welfare-card-copy">
-                  <h4 class="welfare-card-title">직무 교육 지원</h4>
-                  <p class="welfare-card-desc">
-                    배우고 성장하는 즐거움이 계속되도록 역량 개발을 지원해요.
-                  </p>
-                </div>
-                <img
-                  class="welfare-card-icon"
-                  src="./images/wf_ico7.png"
-                  alt="재생 버튼과 연필이 있는 교육 영상 아이콘"
-                />
-              </article>
-            </li>
-            <li class="welfare-item">
-              <article class="welfare-card">
-                <div class="welfare-card-copy">
-                  <h4 class="welfare-card-title">임직원 제휴 할인</h4>
-                  <p class="welfare-card-desc">
-                    다양한 제휴 혜택으로 일상 속 즐거움과 실속을 더해드려요.
-                  </p>
-                </div>
-                <img
-                  class="welfare-card-icon"
-                  src="./images/wf_ico8.png"
-                  alt="할인 혜택 쇼핑백 아이콘"
-                />
-              </article>
-            </li>
-            <li class="welfare-item">
-              <article class="welfare-card">
-                <div class="welfare-card-copy">
-                  <h4 class="welfare-card-title">문화 생활 지원</h4>
-                  <p class="welfare-card-desc">
-                    바쁜 일상에 기분 좋은 쉼표를 더하도록 문화생활을 응원해요.
-                  </p>
-                </div>
-                <img
-                  class="welfare-card-icon"
-                  src="./images/wf_ico9.png"
-                  alt="문화생활을 상징하는 곰돌이 캐릭터 아이콘"
-                />
-              </article>
-            </li>
-            <li class="welfare-item">
-              <article class="welfare-card">
-                <div class="welfare-card-copy">
-                  <h4 class="welfare-card-title">구내식당</h4>
-                  <p class="welfare-card-desc">
-                    든든하고 맛있는 한 끼로 활기찬 하루를 채워드려요.
-                  </p>
-                </div>
-                <img
-                  class="welfare-card-icon"
-                  src="./images/wf_ico10.png"
-                  alt="숟가락과 포크 아이콘"
-                />
-              </article>
-            </li>
-            <li class="welfare-item">
-              <article class="welfare-card">
-                <div class="welfare-card-copy">
-                  <h4 class="welfare-card-title">건강 검진</h4>
-                  <p class="welfare-card-desc">
-                    건강한 하루가 오래 이어지도록, 정기적인 건강관리를 지원해요.
-                  </p>
-                </div>
-                <img
-                  class="welfare-card-icon"
-                  src="./images/wf_ico1.png"
-                  alt="하트가 있는 달력 아이콘"
-                />
-              </article>
-            </li>
-            <li class="welfare-item">
-              <article class="welfare-card">
-                <div class="welfare-card-copy">
-                  <h4 class="welfare-card-title">기념일 축하 지원</h4>
-                  <p class="welfare-card-desc">
-                    소중한 기념일이 더 특별해지도록 한미가 함께 축하해요.
-                  </p>
-                </div>
-                <img
-                  class="welfare-card-icon"
-                  src="./images/wf_ico2.png"
-                  alt="초가 꽂힌 축하 케이크 아이콘"
-                />
-              </article>
-            </li>
-            <li class="welfare-item">
-              <article class="welfare-card">
-                <div class="welfare-card-copy">
-                  <h4 class="welfare-card-title">본인주도 선택복지</h4>
-                  <p class="welfare-card-desc">
-                    나에게 필요한 복지를 내 취향과 생활에 맞게 선택할 수 있어요.
-                  </p>
-                </div>
-                <img
-                  class="welfare-card-icon"
-                  src="./images/wf_ico3.png"
-                  alt="선택 복지 안내 책자 아이콘"
-                />
-              </article>
-            </li>
-            <li class="welfare-item">
-              <article class="welfare-card">
-                <div class="welfare-card-copy">
-                  <h4 class="welfare-card-title">장기 근속 포상</h4>
-                  <p class="welfare-card-desc">
-                    한미와 함께 걸어온 소중한 시간에 감사의 마음을 전해요.
-                  </p>
-                </div>
-                <img
-                  class="welfare-card-icon"
-                  src="./images/wf_ico4.png"
-                  alt="과녁에 꽂힌 화살 아이콘"
-                />
-              </article>
-            </li>
-            <li class="welfare-item">
-              <article class="welfare-card">
-                <div class="welfare-card-copy">
-                  <h4 class="welfare-card-title">유연근무제</h4>
-                  <p class="welfare-card-desc">
-                    업무와 일상의 균형을 찾을 수 있도록 유연한 근무를 지원해요.
-                  </p>
-                </div>
-                <img
-                  class="welfare-card-icon"
-                  src="./images/wf_ico5.png"
-                  alt="유연한 근무 시간을 표현한 탁상시계 아이콘"
-                />
-              </article>
-            </li>
-            <li class="welfare-item">
-              <article class="welfare-card">
-                <div class="welfare-card-copy">
-                  <h4 class="welfare-card-title">단체 상해 보험</h4>
-                  <p class="welfare-card-desc">
-                    예상하지 못한 순간에도 든든할 수 있도록 임직원을 보호해요.
-                  </p>
-                </div>
-                <img
-                  class="welfare-card-icon"
-                  src="./images/wf_ico6.png"
-                  alt="보호를 의미하는 확인 표시 아이콘"
-                />
-              </article>
-            </li>
-            <li class="welfare-item">
-              <article class="welfare-card">
-                <div class="welfare-card-copy">
-                  <h4 class="welfare-card-title">직무 교육 지원</h4>
-                  <p class="welfare-card-desc">
-                    배우고 성장하는 즐거움이 계속되도록 역량 개발을 지원해요.
-                  </p>
-                </div>
-                <img
-                  class="welfare-card-icon"
-                  src="./images/wf_ico7.png"
-                  alt="재생 버튼과 연필이 있는 교육 영상 아이콘"
-                />
-              </article>
-            </li>
-            <li class="welfare-item">
-              <article class="welfare-card">
-                <div class="welfare-card-copy">
-                  <h4 class="welfare-card-title">임직원 제휴 할인</h4>
-                  <p class="welfare-card-desc">
-                    다양한 제휴 혜택으로 일상 속 즐거움과 실속을 더해드려요.
-                  </p>
-                </div>
-                <img
-                  class="welfare-card-icon"
-                  src="./images/wf_ico8.png"
-                  alt="할인 혜택 쇼핑백 아이콘"
-                />
-              </article>
-            </li>
-            <li class="welfare-item">
-              <article class="welfare-card">
-                <div class="welfare-card-copy">
-                  <h4 class="welfare-card-title">문화 생활 지원</h4>
-                  <p class="welfare-card-desc">
-                    바쁜 일상에 기분 좋은 쉼표를 더하도록 문화생활을 응원해요.
-                  </p>
-                </div>
-                <img
-                  class="welfare-card-icon"
-                  src="./images/wf_ico9.png"
-                  alt="문화생활을 상징하는 곰돌이 캐릭터 아이콘"
-                />
-              </article>
-            </li>
-            <li class="welfare-item">
-              <article class="welfare-card">
-                <div class="welfare-card-copy">
-                  <h4 class="welfare-card-title">구내식당</h4>
-                  <p class="welfare-card-desc">
-                    든든하고 맛있는 한 끼로 활기찬 하루를 채워드려요.
-                  </p>
-                </div>
-                <img
-                  class="welfare-card-icon"
-                  src="./images/wf_ico10.png"
-                  alt="숟가락과 포크 아이콘"
-                />
-              </article>
-            </li>
-          </ul>
+            <div id="welfare-groups" aria-live="polite" aria-busy="true"></div>
           </div>
         </div>
       </section>
@@ -4354,12 +5564,475 @@
           </div>
         </dialog>
       </section>
+
+      <section
+        class="requirement"
+        id="requirement"
+        aria-labelledby="requirement-title"
+      >
+        <div class="requirement-inner">
+          <h2 class="requirement-heading" id="requirement-title">
+            한미그룹과 함께하는 문은<br />활짝 열려 있습니다
+          </h2>
+          <img
+            class="requirement-bulb"
+            src="./images/require_obj_bulb.png"
+            alt=""
+          />
+
+          <div class="requirement-tabs" role="tablist" aria-label="채용 안내">
+            <button
+              class="requirement-tab"
+              id="requirement-tab-eligibility"
+              type="button"
+              role="tab"
+              aria-selected="true"
+              aria-controls="requirement-panel-eligibility"
+            >
+              지원자격
+            </button>
+            <button
+              class="requirement-tab"
+              id="requirement-tab-process"
+              type="button"
+              role="tab"
+              aria-selected="false"
+              aria-controls="requirement-panel-process"
+              tabindex="-1"
+            >
+              전형절차 및 접수방법
+            </button>
+          </div>
+
+          <div
+            class="requirement-panel"
+            id="requirement-panel-eligibility"
+            role="tabpanel"
+            aria-labelledby="requirement-tab-eligibility"
+            tabindex="0"
+          >
+            <div class="requirement-eligibility">
+              <article class="requirement-eligibility-item">
+                <img
+                  class="requirement-eligibility-icon"
+                  src="./images/require_ico_calendar_3d.png"
+                  alt=""
+                />
+                <h3>27년 1월 입사가 가능한 자</h3>
+              </article>
+              <article class="requirement-eligibility-item">
+                <img
+                  class="requirement-eligibility-icon"
+                  src="./images/require_ico_gradcap_3d.png"
+                  alt=""
+                />
+                <h3>기졸업자 또는 27년 2월 졸업 예정자</h3>
+              </article>
+            </div>
+            <ul class="requirement-notes">
+              <li>남성의 경우 병역을 마쳤거나 면제인 분</li>
+              <li>해외여행 (또는 해외 출장)에 결격사유가 없는 분</li>
+              <li>취업보호대상자는 관련 법령에 의거하여 우대</li>
+            </ul>
+            <p class="requirement-notice">
+              모집 직무별로 지원자격이 상이하오니 반드시
+              <strong>채용 공고</strong>를 확인해 주시기 바랍니다.
+            </p>
+          </div>
+
+          <div
+            class="requirement-panel"
+            id="requirement-panel-process"
+            role="tabpanel"
+            aria-labelledby="requirement-tab-process"
+            tabindex="0"
+            hidden
+          >
+            <section class="requirement-process-group">
+              <h3>영업직군</h3>
+              <ol class="requirement-steps">
+                <li class="requirement-step">
+                  <span class="requirement-step-icon" aria-hidden="true">🗓️</span>
+                  <h4>지원접수</h4>
+                  <p>9.28~10.18</p>
+                </li>
+                <li class="requirement-step">
+                  <span class="requirement-step-icon" aria-hidden="true">📑</span>
+                  <h4>서류전형</h4>
+                  <p>10.19~10.20</p>
+                </li>
+                <li class="requirement-step">
+                  <span class="requirement-step-icon" aria-hidden="true">🔍</span>
+                  <h4>AI역량검사</h4>
+                  <p>10.21~10.25</p>
+                </li>
+                <li class="requirement-step">
+                  <span class="requirement-step-icon" aria-hidden="true">🪪</span>
+                  <h4>1차면접</h4>
+                  <p>11월 중</p>
+                </li>
+                <li class="requirement-step">
+                  <span class="requirement-step-icon" aria-hidden="true">📍</span>
+                  <h4>현장체험</h4>
+                  <p>12월 초</p>
+                </li>
+                <li class="requirement-step">
+                  <span class="requirement-step-icon" aria-hidden="true">💬</span>
+                  <h4>2차면접</h4>
+                  <p>12월 중</p>
+                </li>
+                <li class="requirement-step">
+                  <span class="requirement-step-icon" aria-hidden="true">🗂️</span>
+                  <h4>교육전형</h4>
+                  <p>27.1.4~</p>
+                </li>
+              </ol>
+            </section>
+            <section class="requirement-process-group">
+              <h3>영업 외 전직군</h3>
+              <ol class="requirement-steps">
+                <li class="requirement-step">
+                  <span class="requirement-step-icon" aria-hidden="true">🗓️</span>
+                  <h4>지원접수</h4>
+                  <p>9.28~10.18</p>
+                </li>
+                <li class="requirement-step">
+                  <span class="requirement-step-icon" aria-hidden="true">📑</span>
+                  <h4>서류전형</h4>
+                  <p>10.19~10.20</p>
+                </li>
+                <li class="requirement-step">
+                  <span class="requirement-step-icon" aria-hidden="true">🔍</span>
+                  <h4>AI역량검사</h4>
+                  <p>10.21~10.25</p>
+                </li>
+                <li class="requirement-step">
+                  <span class="requirement-step-icon" aria-hidden="true">🪪</span>
+                  <h4>1차면접</h4>
+                  <p>11월 중</p>
+                </li>
+                <li class="requirement-step">
+                  <span class="requirement-step-icon" aria-hidden="true">💬</span>
+                  <h4>2차면접</h4>
+                  <p>12월 중</p>
+                </li>
+                <li class="requirement-step">
+                  <span class="requirement-step-icon" aria-hidden="true">🏢</span>
+                  <h4>입사</h4>
+                  <p>27.1.4<br />(경력직 협의 가능)</p>
+                </li>
+              </ol>
+            </section>
+            <ul class="requirement-process-notes">
+              <li>
+                상기 일정은 상황에 따라 변경될 수 있으며 각 전형별 상세 일정은
+                대상자에 한해 개별 안내 예정입니다.
+              </li>
+              <li>
+                입사지원서에 허위 기재가 있거나 제출서류가 허위로 판명되는 경우,
+                또는 입사 이후 자격 미확보 및 상실하는 경우는 입사가 취소될 수
+                있습니다.
+              </li>
+              <li>지원서 제출 후에는 수정이 절대 불가하오니, 주의하시기 바랍니다.</li>
+              <li>
+                전형단계별 결과는 E-Mail 및 SMS를 통하여 안내하오니 E-Mail 주소 및
+                휴대전화 번호를 정확히 기재해주시기 바랍니다.
+              </li>
+              <li>
+                입사 후 3개월간 수습기간이 적용되며, 수습 기간 중 성적이
+                불량하거나 직무 수행 능력이 부족하다고 판단되는 경우 입사가
+                취소될 수 있습니다.
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section
+        class="exposition"
+        id="exposition"
+        aria-labelledby="exposition-title"
+      >
+        <div class="exposition-inner">
+          <div class="exposition-intro">
+            <img
+              class="exposition-character"
+              src="./images/expo_char.png"
+              alt=""
+            />
+            <div class="exposition-copy">
+              <h2 class="exposition-heading" id="exposition-title">
+                Hanmi 박람회/캠퍼스로 출발!
+              </h2>
+              <p class="exposition-description">
+                한미그룹이 여러분을 만나러 박람회와 캠퍼스로 찾아갑니다.<br />
+                우리가 어디서 만날지 궁금하다면 아래 지역에서 찾아보세요!
+              </p>
+              <p class="exposition-guide">
+                학교명/장소를 클릭하거나 터치하면 세부장소를 확인하실 수
+                있습니다.
+              </p>
+            </div>
+          </div>
+
+          <div class="exposition-tabs" role="tablist" aria-label="방문 일정 종류">
+            <button
+              class="exposition-tab"
+              id="exposition-tab-fair"
+              type="button"
+              role="tab"
+              aria-selected="true"
+              aria-controls="exposition-panel-fair"
+            >
+              박람회
+            </button>
+            <button
+              class="exposition-tab"
+              id="exposition-tab-campus"
+              type="button"
+              role="tab"
+              aria-selected="false"
+              aria-controls="exposition-panel-campus"
+              tabindex="-1"
+            >
+              캠퍼스
+            </button>
+          </div>
+
+          <div
+            class="exposition-panel"
+            id="exposition-panel-fair"
+            role="tabpanel"
+            aria-labelledby="exposition-tab-fair"
+          >
+            <div
+              class="exposition-calendar"
+              id="exposition-fair-calendar"
+              aria-live="polite"
+            ></div>
+          </div>
+
+          <div
+            class="exposition-panel"
+            id="exposition-panel-campus"
+            role="tabpanel"
+            aria-labelledby="exposition-tab-campus"
+            hidden
+          >
+            <div
+              class="exposition-region-panel"
+              aria-label="캠퍼스 방문 지역"
+            >
+              <div class="exposition-regions" role="group" aria-label="지역 선택">
+                <button
+                  class="exposition-region"
+                  type="button"
+                  data-region="서울"
+                  aria-pressed="true"
+                >
+                  서울
+                </button>
+                <button
+                  class="exposition-region"
+                  type="button"
+                  data-region="경기"
+                  aria-pressed="false"
+                >
+                  경기
+                </button>
+                <button
+                  class="exposition-region"
+                  type="button"
+                  data-region="강원"
+                  aria-pressed="false"
+                >
+                  강원
+                </button>
+                <button
+                  class="exposition-region"
+                  type="button"
+                  data-region="경상"
+                  aria-pressed="false"
+                >
+                  경상
+                </button>
+                <button
+                  class="exposition-region"
+                  type="button"
+                  data-region="충청"
+                  aria-pressed="false"
+                >
+                  충청
+                </button>
+                <button
+                  class="exposition-region"
+                  type="button"
+                  data-region="전라"
+                  aria-pressed="false"
+                >
+                  전라
+                </button>
+              </div>
+              <div
+                class="exposition-calendar"
+                id="exposition-campus-calendar"
+                aria-live="polite"
+              ></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="con8" aria-label="한미그룹 지원 링크 바로가기">
+        <div class="con8-inner">
+          <div class="con8-cards">
+            <a
+              class="con8-card"
+              href="https://www.youtube.com/results?search_query=%ED%95%9C%EB%AF%B8%EA%B7%B8%EB%A3%B9"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <span class="con8-card-media">
+                <img
+                  class="con8-card-image"
+                  src="./images/con8_img1.jpg"
+                  alt=""
+                />
+                <img
+                  class="con8-mark con8-mark--first-arrow"
+                  src="./images/con8_Image.png"
+                  alt=""
+                />
+                <img
+                  class="con8-mark con8-mark--first-star"
+                  src="./images/con8_Image-2.png"
+                  alt=""
+                />
+              </span>
+              <span class="con8-card-copy">
+                <span class="con8-question"
+                  >한미그룹의
+                  <span class="con8-question-target">
+                    문화와 복지가
+                    <img
+                      class="con8-mark con8-mark--underline"
+                      src="./images/con8_Image-1.png"
+                      alt=""
+                    />
+                  </span>
+                  궁금하다면?</span
+                >
+              </span>
+            </a>
+            <a class="con8-card" href="#tasks">
+              <span class="con8-card-media">
+                <img
+                  class="con8-card-image"
+                  src="./images/con8_img2.jpg"
+                  alt=""
+                />
+                <img
+                  class="con8-mark con8-mark--second-arrow"
+                  src="./images/con8_Image-4.png"
+                  alt=""
+                />
+              </span>
+              <span class="con8-card-copy">
+                <span class="con8-question">
+                  한미그룹의
+                  <span class="con8-question-target">
+                    직무가
+                    <img
+                      class="con8-mark con8-mark--circle"
+                      src="./images/con8_Image-3.png"
+                      alt=""
+                    />
+                  </span>
+                  궁금하다면?
+                </span>
+              </span>
+            </a>
+            <a class="con8-card" href="#main-visual">
+              <span class="con8-card-media">
+                <img
+                  class="con8-card-image"
+                  src="./images/con8_img3.jpg"
+                  alt=""
+                />
+              </span>
+              <span class="con8-card-copy">
+                <span class="con8-question">
+                  한미그룹의
+                  <span class="con8-question-target">
+                    채용소식을
+                    <img
+                      class="con8-mark con8-mark--wave"
+                      src="./images/con8_Image-5.png"
+                      alt=""
+                    />
+                  </span>
+                  빠르게 받고 싶다면?
+                </span>
+              </span>
+            </a>
+          </div>
+          <img
+            class="con8-character"
+            src="./images/con8_char.png"
+            alt=""
+          />
+        </div>
+      </section>
+
+      <section class="con9" aria-labelledby="con9-title">
+        <h2 class="con9-heading" id="con9-title">
+          당신에게 딱 맞는 자리를 찾으러 출발!
+        </h2>
+        <p class="con9-countdown" aria-live="polite">
+          <span class="con9-time-unit">
+            <strong class="con9-time-value" data-countdown-days>0</strong>
+            <span class="con9-time-label">일</span>
+          </span>
+          <span class="con9-time-unit">
+            <strong class="con9-time-value" data-countdown-hours>00</strong>
+            <span class="con9-time-label">시간</span>
+          </span>
+          <span class="con9-time-unit">
+            <strong class="con9-time-value" data-countdown-minutes>00</strong>
+            <span class="con9-time-label">분</span>
+          </span>
+          <span class="con9-time-unit">
+            <strong class="con9-time-value" data-countdown-seconds>00</strong>
+            <span class="con9-time-label">초</span>
+          </span>
+          <span class="con9-countdown-remaining">남았어요</span>
+          <span class="con9-countdown-ended" hidden>지원 기간이 종료되었습니다.</span>
+        </p>
+        <img class="con9-earth" src="./images/con9_earth.png" alt="" />
+        <a class="con9-apply" href="#tasks">
+          지원하기
+          <span class="con9-apply-arrow" aria-hidden="true">→</span>
+        </a>
+        <p class="con9-note">아이콘을 클릭해서 지원해주세요!</p>
+        <img
+          class="con9-cloud con9-cloud--left"
+          src="./images/con9_cloud_l.png"
+          alt=""
+        />
+        <img
+          class="con9-cloud con9-cloud--right"
+          src="./images/con9_cloud_r.png"
+          alt=""
+        />
+      </section>
     </main>
 
     <!-- 하단 푸터 영역 -->
     <footer class="site-footer">
       <div class="footer-inner">
-        <p>&copy; 2026 Hanmi Group. All rights reserved.</p>
+        <a href="#main-visual" aria-label="한미그룹 홈으로 이동">
+          <img class="footer-logo" src="./images/logo.svg" alt="한미그룹 Hanmi" />
+        </a>
       </div>
     </footer>
 
@@ -4420,6 +6093,477 @@
             }
           });
         });
+      })();
+
+      // 박람회/캠퍼스 일정: 탭과 지역별 방문 일정
+      (function () {
+        var tabs = Array.from(
+          document.querySelectorAll(".exposition-tab[role='tab']"),
+        );
+        var fairCalendar = document.getElementById("exposition-fair-calendar");
+        var campusCalendar = document.getElementById(
+          "exposition-campus-calendar",
+        );
+        var regionButtons = Array.from(
+          document.querySelectorAll(".exposition-region"),
+        );
+        if (!tabs.length || !fairCalendar || !campusCalendar) return;
+
+        var fairWeeks = [
+          [
+            { date: "8월 31일 (월)", events: ["KAIST"] },
+            {
+              date: "9월 1일 (화)",
+              events: ["서울대학교", "서강대학교", "연세대학교"],
+            },
+            { date: "9월 2일 (수)", events: ["UNIST", "한양대학교"] },
+            { date: "9월 3일 (목)", events: ["GIST"] },
+            {
+              date: "9월 4일 (금)",
+              events: ["고려대학교", "성균관대학교(자연)"],
+            },
+          ],
+          [
+            { date: "9월 7일 (월)", events: ["KIST", "동국대학교"] },
+            {
+              date: "9월 8일 (화)",
+              events: ["이화여자대학교", "중견기업박람회(대전)"],
+            },
+            { date: "9월 9일 (수)", events: ["POSTECH"] },
+            { date: "", events: [] },
+            { date: "10월 7일 (수)", events: ["서울고용센터"] },
+          ],
+        ];
+        var activeCampusEvent = null;
+        var campusScheduleData = null;
+        var selectedRegion = "서울";
+        var regions = ["서울", "경기", "강원", "경상", "충청", "전라"];
+        var weekDays = ["일", "월", "화", "수", "목", "금", "토"];
+
+        function parseCampusDate(dateText) {
+          var match = /^(\d{1,2})월\s*(\d{1,2})일\s*\(([일월화수목금토])\)$/.exec(
+            dateText,
+          );
+          if (!match) {
+            throw new Error("잘못된 캠퍼스 일정 날짜입니다: " + dateText);
+          }
+          var date = new Date(2026, Number(match[1]) - 1, Number(match[2]));
+          if (
+            date.getMonth() !== Number(match[1]) - 1 ||
+            date.getDate() !== Number(match[2]) ||
+            weekDays[date.getDay()] !== match[3]
+          ) {
+            throw new Error("유효하지 않은 캠퍼스 일정 날짜입니다: " + dateText);
+          }
+          return date;
+        }
+
+        function buildRegionalWeeks(region) {
+          var schedules = campusScheduleData.filter(function (schedule) {
+            return schedule.region === region;
+          });
+          if (!schedules.length) return [];
+
+          var schedulesByDate = Object.create(null);
+          var firstDate = null;
+          var lastDate = null;
+          schedules.forEach(function (schedule) {
+            var date = parseCampusDate(schedule.date);
+            var dateKey =
+              date.getFullYear() +
+              "-" +
+              date.getMonth() +
+              "-" +
+              date.getDate();
+            if (!schedulesByDate[dateKey]) schedulesByDate[dateKey] = [];
+            schedulesByDate[dateKey].push(schedule);
+            if (!firstDate || date < firstDate) firstDate = date;
+            if (!lastDate || date > lastDate) lastDate = date;
+          });
+
+          var monday = new Date(firstDate);
+          monday.setDate(monday.getDate() - ((monday.getDay() + 6) % 7));
+          var weeks = [];
+          var currentWeek = [];
+          var currentWeekNumber = null;
+          for (
+            var date = new Date(monday);
+            date <= lastDate;
+            date.setDate(date.getDate() + 1)
+          ) {
+            if (date.getDay() === 0 || date.getDay() === 6) continue;
+
+            var weekNumber = Math.floor(
+              (date - monday) / (7 * 24 * 60 * 60 * 1000),
+            );
+            if (currentWeekNumber !== weekNumber) {
+              if (currentWeek.length) weeks.push(currentWeek);
+              currentWeek = [];
+              currentWeekNumber = weekNumber;
+            }
+            var dayKey =
+              date.getFullYear() +
+              "-" +
+              date.getMonth() +
+              "-" +
+              date.getDate();
+            currentWeek.push({
+              date:
+                date.getMonth() +
+                1 +
+                "월 " +
+                date.getDate() +
+                "일 (" +
+                weekDays[date.getDay()] +
+                ")",
+              events: schedulesByDate[dayKey] || [],
+            });
+          }
+          if (currentWeek.length) weeks.push(currentWeek);
+          return weeks;
+        }
+
+        function closeCampusDetail() {
+          if (!activeCampusEvent) return;
+          var activeEvent = activeCampusEvent;
+          activeCampusEvent = null;
+          var card = activeEvent.querySelector(".exposition-campus-detail");
+          var button = activeEvent.querySelector(".exposition-event-button");
+          if (!card) return;
+
+          activeEvent.classList.add("is-closing");
+          if (button) button.disabled = true;
+          card.classList.remove("is-visible");
+          if (button) button.setAttribute("aria-expanded", "false");
+          window.setTimeout(function () {
+            card.remove();
+            activeEvent.classList.remove("is-expanded");
+            activeEvent.classList.remove("is-closing");
+            if (button) button.disabled = false;
+          }, 300);
+        }
+
+        function renderCalendar(calendar, weeks, isCampus) {
+          var fragment = document.createDocumentFragment();
+          weeks.forEach(function (days) {
+            var week = document.createElement("div");
+            week.className = "exposition-week";
+            days.forEach(function (day) {
+              var dayElement = document.createElement("div");
+              dayElement.className = "exposition-day";
+              var date = document.createElement("h3");
+              date.className = "exposition-date";
+              date.textContent = day.date;
+              var events = document.createElement("div");
+              events.className = "exposition-events";
+
+              day.events.forEach(function (schedule, eventIndex) {
+                var eventName = isCampus ? schedule.school : schedule;
+                var event = document.createElement("div");
+                event.className =
+                  "exposition-event" +
+                  (eventIndex < day.events.length - 1 ? " has-divider" : "");
+                var button = document.createElement("button");
+                button.className = "exposition-event-button";
+                button.type = "button";
+                button.textContent = eventName;
+                button.setAttribute("aria-expanded", "false");
+                if (isCampus) {
+                  button.addEventListener("click", function () {
+                    if (activeCampusEvent === event) {
+                      closeCampusDetail();
+                      button.setAttribute("aria-expanded", "false");
+                      return;
+                    }
+                    closeCampusDetail();
+                    var card = document.createElement("div");
+                    card.className = "exposition-campus-detail";
+                    card.setAttribute("aria-label", eventName + " 일정 상세");
+                    var content = document.createElement("div");
+                    content.className = "exposition-campus-detail-content";
+                    var detailItems = [
+                      { label: "⚑ 장소", value: schedule.location },
+                    ];
+                    if (schedule.time) {
+                      detailItems.push({
+                        label: "◷ 시간",
+                        value: schedule.time,
+                      });
+                    }
+                    detailItems.forEach(function (item) {
+                      var detailItem = document.createElement("div");
+                      detailItem.className = "exposition-campus-detail-item";
+                      var label = document.createElement("span");
+                      label.className = "exposition-campus-detail-label";
+                      label.textContent = item.label;
+                      var value = document.createElement("span");
+                      value.className = "exposition-campus-detail-value";
+                      value.textContent = item.value;
+                      detailItem.append(label, value);
+                      content.append(detailItem);
+                    });
+                    card.append(content);
+                    event.append(card);
+                    event.classList.add("is-expanded");
+                    button.disabled = true;
+                    button.setAttribute("aria-expanded", "true");
+                    activeCampusEvent = event;
+                    window.requestAnimationFrame(function () {
+                      if (activeCampusEvent === event) {
+                        card.classList.add("is-visible");
+                      }
+                    });
+                  });
+                  event.append(button);
+                } else {
+                  var eventNameLabel = document.createElement("span");
+                  eventNameLabel.className = "exposition-event-name";
+                  eventNameLabel.textContent = eventName;
+                  event.append(eventNameLabel);
+                }
+                events.append(event);
+              });
+
+              dayElement.append(date, events);
+              week.append(dayElement);
+            });
+            fragment.append(week);
+          });
+          calendar.replaceChildren(fragment);
+        }
+
+        function selectTab(selectedTab, moveFocus) {
+          tabs.forEach(function (tab) {
+            var selected = tab === selectedTab;
+            tab.setAttribute("aria-selected", selected ? "true" : "false");
+            tab.tabIndex = selected ? 0 : -1;
+            document
+              .getElementById(tab.getAttribute("aria-controls"))
+              .toggleAttribute("hidden", !selected);
+          });
+          if (moveFocus) selectedTab.focus();
+        }
+
+        function selectRegion(selectedButton) {
+          closeCampusDetail();
+          selectedRegion = selectedButton.dataset.region;
+          regionButtons.forEach(function (button) {
+            button.setAttribute(
+              "aria-pressed",
+              button === selectedButton ? "true" : "false",
+            );
+          });
+          if (campusScheduleData) {
+            var weeks = buildRegionalWeeks(selectedRegion);
+            if (weeks.length) {
+              renderCalendar(campusCalendar, weeks, true);
+            } else {
+              campusCalendar.replaceChildren();
+              campusCalendar.textContent = "해당 지역 일정이 없습니다.";
+            }
+          }
+        }
+
+        tabs.forEach(function (tab, index) {
+          tab.addEventListener("click", function () {
+            closeCampusDetail();
+            selectTab(tab, false);
+          });
+          tab.addEventListener("keydown", function (event) {
+            var nextIndex = index;
+            if (event.key === "ArrowRight") nextIndex = (index + 1) % tabs.length;
+            else if (event.key === "ArrowLeft")
+              nextIndex = (index - 1 + tabs.length) % tabs.length;
+            else if (event.key === "Home") nextIndex = 0;
+            else if (event.key === "End") nextIndex = tabs.length - 1;
+            else return;
+
+            event.preventDefault();
+            closeCampusDetail();
+            selectTab(tabs[nextIndex], true);
+          });
+        });
+        regionButtons.forEach(function (button) {
+          button.addEventListener("click", function () {
+            selectRegion(button);
+          });
+        });
+
+        document.addEventListener("click", function (event) {
+          if (
+            activeCampusEvent &&
+            !activeCampusEvent.contains(event.target)
+          ) {
+            closeCampusDetail();
+          }
+        });
+
+        renderCalendar(fairCalendar, fairWeeks, false);
+        selectRegion(regionButtons[0]);
+        campusCalendar.setAttribute("aria-busy", "true");
+        fetch("./data/campus_recruiting_schedule.json")
+          .then(function (response) {
+            if (!response.ok) {
+              throw new Error(
+                "캠퍼스 일정 요청 실패: HTTP " + response.status,
+              );
+            }
+            return response.json();
+          })
+          .then(function (schedules) {
+            if (!Array.isArray(schedules)) {
+              throw new Error("캠퍼스 일정 데이터 형식이 올바르지 않습니다.");
+            }
+            campusScheduleData = schedules;
+            campusCalendar.removeAttribute("aria-busy");
+            var weeks = buildRegionalWeeks(selectedRegion);
+            if (weeks.length) {
+              renderCalendar(campusCalendar, weeks, true);
+            } else {
+              campusCalendar.replaceChildren();
+              campusCalendar.textContent = "해당 지역 일정이 없습니다.";
+            }
+          })
+          .catch(function (error) {
+            console.error("캠퍼스 일정을 불러오지 못했습니다.", error);
+            campusCalendar.removeAttribute("aria-busy");
+            campusCalendar.replaceChildren();
+            campusCalendar.textContent =
+              "캠퍼스 일정을 불러오지 못했습니다. 잠시 후 다시 시도해 주세요.";
+          });
+      })();
+
+      // 지원자격 섹션: 안내 탭 전환
+      (function () {
+        var tabs = Array.from(
+          document.querySelectorAll(".requirement-tab[role='tab']"),
+        );
+        if (!tabs.length) return;
+
+        function selectTab(selectedTab, moveFocus) {
+          tabs.forEach(function (tab) {
+            var selected = tab === selectedTab;
+            tab.setAttribute("aria-selected", selected ? "true" : "false");
+            tab.tabIndex = selected ? 0 : -1;
+            document
+              .getElementById(tab.getAttribute("aria-controls"))
+              .toggleAttribute("hidden", !selected);
+          });
+          if (moveFocus) selectedTab.focus();
+        }
+
+        tabs.forEach(function (tab, index) {
+          tab.addEventListener("click", function () {
+            selectTab(tab, false);
+          });
+          tab.addEventListener("keydown", function (event) {
+            var nextIndex = index;
+            if (event.key === "ArrowRight") nextIndex = (index + 1) % tabs.length;
+            else if (event.key === "ArrowLeft")
+              nextIndex = (index - 1 + tabs.length) % tabs.length;
+            else if (event.key === "Home") nextIndex = 0;
+            else if (event.key === "End") nextIndex = tabs.length - 1;
+            else return;
+
+            event.preventDefault();
+            selectTab(tabs[nextIndex], true);
+          });
+        });
+      })();
+
+      // 복지 섹션: benefit_data.json을 실제 목록 구조로 렌더링
+      (function () {
+        var groupsElement = document.getElementById("welfare-groups");
+        if (!groupsElement) return;
+
+        var categoryIcons = ["💗", "🏠", "🏢"];
+        function fetchJson(path) {
+          return fetch(path).then(function (response) {
+            if (!response.ok) {
+              throw new Error(path + " 요청 실패: HTTP " + response.status);
+            }
+            return response.json();
+          });
+        }
+
+        function renderGroups(groups) {
+          if (!Array.isArray(groups) || groups.length === 0) {
+            throw new Error("복지 분류 데이터가 비어 있거나 올바르지 않습니다.");
+          }
+
+          var fragment = document.createDocumentFragment();
+          groups.forEach(function (group, groupIndex) {
+            if (
+              !group.category ||
+              !group.summary ||
+              !Array.isArray(group.benefits)
+            ) {
+              throw new Error("복지 분류 데이터 항목이 올바르지 않습니다.");
+            }
+
+            var subhead = document.createElement("div");
+            subhead.className = "welfare-subhead";
+            var subtitle = document.createElement("h3");
+            subtitle.className = "welfare-subtitle";
+            var categoryIcon = document.createElement("span");
+            categoryIcon.setAttribute("aria-hidden", "true");
+            categoryIcon.textContent = categoryIcons[groupIndex] || "💗";
+            subtitle.append(categoryIcon, " " + group.category);
+            var summary = document.createElement("p");
+            summary.className = "welfare-subdesc";
+            summary.textContent = group.summary;
+            subhead.append(subtitle, summary);
+
+            var list = document.createElement("ul");
+            list.className = "welfare-list";
+            group.benefits.forEach(function (benefit) {
+              if (
+                !benefit.title ||
+                !benefit.description ||
+                !/^\.\/images\/wf_ico\d+\.png$/.test(benefit.icon)
+              ) {
+                throw new Error("복지 항목 데이터가 올바르지 않습니다.");
+              }
+
+              var item = document.createElement("li");
+              item.className = "welfare-item";
+              var card = document.createElement("article");
+              card.className = "welfare-card";
+              var copy = document.createElement("div");
+              copy.className = "welfare-card-copy";
+              var title = document.createElement("h4");
+              title.className = "welfare-card-title";
+              title.textContent = benefit.title;
+              var description = document.createElement("p");
+              description.className = "welfare-card-desc";
+              description.textContent = benefit.description;
+              copy.append(title, description);
+
+              var icon = document.createElement("img");
+              icon.className = "welfare-card-icon";
+              icon.src = benefit.icon;
+              icon.alt = "";
+              icon.setAttribute("aria-hidden", "true");
+              card.append(copy, icon);
+              item.append(card);
+              list.append(item);
+            });
+
+            fragment.append(subhead, list);
+          });
+
+          groupsElement.replaceChildren(fragment);
+          groupsElement.setAttribute("aria-busy", "false");
+        }
+
+        fetchJson("./data/benefit_data.json")
+          .then(renderGroups)
+          .catch(function (error) {
+            console.error("복지 데이터를 불러오지 못했습니다.", error);
+            groupsElement.textContent =
+              "복지 정보를 불러오지 못했습니다. 잠시 후 다시 시도해 주세요.";
+            groupsElement.setAttribute("aria-busy", "false");
+          });
       })();
 
       // 직무 섹션: 분야 선택, 부서 아코디언, 직무 상세 모달
@@ -5121,6 +7265,52 @@
         }
         if (window.ResizeObserver) new ResizeObserver(refit).observe(flow);
         else window.addEventListener("resize", refit);
+      })();
+    </script>
+    <script>
+      (function () {
+        var countdown = document.querySelector(".con9-countdown");
+        if (!countdown) return;
+
+        var deadline = new Date("2026-10-18T23:59:59+09:00").getTime();
+        var daysValue = countdown.querySelector("[data-countdown-days]");
+        var hoursValue = countdown.querySelector("[data-countdown-hours]");
+        var minutesValue = countdown.querySelector("[data-countdown-minutes]");
+        var secondsValue = countdown.querySelector("[data-countdown-seconds]");
+        var endedMessage = countdown.querySelector(".con9-countdown-ended");
+        var timeUnits = countdown.querySelectorAll(".con9-time-unit");
+        var remainingText = countdown.querySelector(
+          ".con9-countdown-remaining",
+        );
+        var timer = null;
+
+        function updateCountdown() {
+          var remaining = deadline - Date.now();
+          if (remaining <= 0) {
+            timeUnits.forEach(function (unit) {
+              unit.hidden = true;
+            });
+            remainingText.hidden = true;
+            endedMessage.hidden = false;
+            if (timer !== null) window.clearInterval(timer);
+            return;
+          }
+
+          var totalSeconds = Math.floor(remaining / 1000);
+          daysValue.textContent = Math.floor(totalSeconds / 86400);
+          hoursValue.textContent = String(
+            Math.floor((totalSeconds % 86400) / 3600),
+          ).padStart(2, "0");
+          minutesValue.textContent = String(
+            Math.floor((totalSeconds % 3600) / 60),
+          ).padStart(2, "0");
+          secondsValue.textContent = String(totalSeconds % 60).padStart(2, "0");
+        }
+
+        updateCountdown();
+        if (deadline > Date.now()) {
+          timer = window.setInterval(updateCountdown, 1000);
+        }
       })();
     </script>
   </body>
